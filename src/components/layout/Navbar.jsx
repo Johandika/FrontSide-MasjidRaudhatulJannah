@@ -11,6 +11,7 @@ const Navbar = () => {
         <Link to={"/jadwalkajian"}>jadwal Kajian</Link>
         <Link to={"/jadwaltahsin"}>jadwal Tahsin</Link>
         <Link to={"/donasi"}>Donasi</Link>
+        <Link to={"/kegiatan"}>Kegiatan</Link>
       </div>
     </div>
   );

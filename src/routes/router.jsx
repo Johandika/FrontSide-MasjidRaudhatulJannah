@@ -8,6 +8,7 @@ import JadwalKajian from "../pages/JadwalKajian";
 import JadwalTahsin from "../pages/JadwalTahsin";
 import Layout from "../components/layout/Layout";
 import Donasi from "../pages/Donasi";
+import Kegiatan from "../pages/Kegiatan";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/donasi",
         element: <Donasi />,
+      },
+      {
+        path: "/kegiatan",
+        element: <Kegiatan />,
       },
     ],
   },
