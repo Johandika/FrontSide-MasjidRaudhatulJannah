@@ -23,10 +23,14 @@ const Footer = () => {
             Jl. Tuanku Tambusai, Labuh Baru Tim, Kec. Payung Sekaki, Kota
             Pekanbaru, Riau 28123
           </p>
-          <p className="flex gap-2 text-sm items-center">
+          <a
+            target="_blank"
+            href="https://wa.me/0823788197372"
+            className="flex gap-2 text-sm items-center cursor-pointer"
+          >
             <img src={WhatsApp} alt="WhatsApp" />
             +62 823766789292
-          </p>
+          </a>
         </div>
 
         {/* Jadwal */}
@@ -48,12 +52,12 @@ const Footer = () => {
           <Link to={"/kegiatan"}>Kegiatan</Link>
         </div>
         <div className="flex flex-col gap-3 text-lg font-semibold text-white">
-          <p className="text-TextYellow">Rekening</p>
+          <p className="text-TextYellow">Rekening Donasi</p>
           <Link to={"/donasi"}>Donasi</Link>
         </div>
         <div className="flex flex-col gap-3 text-lg font-semibold text-white">
           <p className="text-TextYellow">Link Kajian</p>
-          <Link to={"/linkKajian"}>Link</Link>
+          <Link to={"/linkKajian"}>Link </Link>
         </div>
       </div>
       <div className="w-full py-7 px-16 flex text-white justify-between items-center">
