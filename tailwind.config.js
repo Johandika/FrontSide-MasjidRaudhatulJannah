@@ -12,8 +12,10 @@ export default {
         TextDark: "#333333",
         TextLight: "#757575",
         TextWhite: "#FFFFFF",
+        TextYellow: "#FFEC94",
         Gray1: "#FAFAFA",
         Gray2: "#BCBFBF",
+        Green: "#379477",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

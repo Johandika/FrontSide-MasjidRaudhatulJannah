@@ -4,11 +4,17 @@ import {
   redirect,
 } from "react-router-dom";
 import Home from "../pages/Home";
-import JadwalKajian from "../pages/JadwalKajian";
-import JadwalTahsin from "../pages/JadwalTahsin";
 import Layout from "../components/layout/Layout";
 import Donasi from "../pages/Donasi";
 import Kegiatan from "../pages/Kegiatan";
+import DiklatJenazah from "../pages/DiklatJenazah";
+import DiklatPraNikah from "../pages/DiklatPraNikah";
+import DiklatShalat from "../pages/DiklatShalat";
+import KelasBahasaArab from "../pages/KelasBahasaArab";
+import LinkKajian from "../pages/LinkKajian";
+import TahsinAnak from "../pages/TahsinAnak";
+import TahsinIkhwan from "../pages/TahsinIkhwan";
+import Kajian from "../pages/Kajian";
 
 const router = createBrowserRouter([
   {
@@ -20,20 +26,44 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/jadwalkajian",
-        element: <JadwalKajian />,
+        path: "/diklatJenazah",
+        element: <DiklatJenazah />,
       },
       {
-        path: "/jadwaltahsin",
-        element: <JadwalTahsin />,
+        path: "/diklatPraNikah",
+        element: <DiklatPraNikah />,
       },
       {
-        path: "/donasi",
-        element: <Donasi />,
+        path: "/diklatShalat",
+        element: <DiklatShalat />,
+      },
+      {
+        path: "/bahasaArab",
+        element: <KelasBahasaArab />,
+      },
+      {
+        path: "/linkKajian",
+        element: <LinkKajian />,
+      },
+      {
+        path: "/tahsinAnak",
+        element: <TahsinAnak />,
+      },
+      {
+        path: "/tahsinIkhwan",
+        element: <TahsinIkhwan />,
+      },
+      {
+        path: "/kajian",
+        element: <Kajian />,
       },
       {
         path: "/kegiatan",
         element: <Kegiatan />,
+      },
+      {
+        path: "/donasi",
+        element: <Donasi />,
       },
     ],
   },
