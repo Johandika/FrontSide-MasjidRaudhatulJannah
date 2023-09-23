@@ -37,6 +37,18 @@ let Diklat = [
     label: <Link to={"/diklatShalat"}>Diklat Fiqih Wudhu & Shalat</Link>,
   },
 ];
+
+let LinkKajian = [
+  {
+    key: "8",
+    label: <Link to={"/linkKajianRutin"}> Kajian Rutin</Link>,
+  },
+  {
+    key: "9",
+    label: <Link to={"/linkKajianTablighAkbar"}>Kajian Tabligh Akbar</Link>,
+  },
+];
+
 const Navbar = () => {
   return (
     <div className="w-full px-12 py-4 flex items-center border-b-[1px] border-slate-200">
@@ -70,7 +82,17 @@ const Navbar = () => {
         </Dropdown>
         <Link to={"/kegiatan"}>Kegiatan</Link>
         <Link to={"/donasi"}>Donasi</Link>
-        <Link to={"/linkKajian"}>Link Kajian</Link>
+        <Dropdown
+          menu={{
+            items: LinkKajian,
+          }}
+        >
+          <a onClick={(e) => e.preventDefault()} className="flex gap-1">
+            <p>Link Kajian</p>
+
+            <DownOutlined />
+          </a>
+        </Dropdown>
       </div>
     </div>
   );

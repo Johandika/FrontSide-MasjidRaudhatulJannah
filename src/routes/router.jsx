@@ -15,6 +15,7 @@ import LinkKajian from "../pages/LinkKajian";
 import TahsinAnak from "../pages/TahsinAnak";
 import TahsinIkhwan from "../pages/TahsinIkhwan";
 import Kajian from "../pages/Kajian";
+import LinkTablighAkbar from "../pages/LinkTablighAkbar";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
         element: <KelasBahasaArab />,
       },
       {
-        path: "/linkKajian",
+        path: "/linkKajianRutin",
         element: <LinkKajian />,
+      },
+      {
+        path: "/linkKajianTablighAkbar",
+        element: <LinkTablighAkbar />,
       },
       {
         path: "/tahsinAnak",
