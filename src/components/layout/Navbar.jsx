@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../../assets/icons";
 
-import { DownOutlined, SmileOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import { Dropdown } from "antd";
 const Jadwal = [
   {
     key: "1",
@@ -54,7 +53,10 @@ const Navbar = () => {
     <div className="w-full px-12 py-4 flex items-center border-b-[1px] border-slate-200">
       <div className="flex w-[20%]">
         <Link to={"/"}>
-          <img src={logo} className="w-[72px] h-[60px] " />
+          <img
+            src={logo}
+            className="w-[72px] h-[60px] "
+          />
         </Link>
       </div>
       <div className="flex w-[80%]  gap-8 justify-end text-lg font-semibold ">
@@ -63,7 +65,10 @@ const Navbar = () => {
             items: Jadwal,
           }}
         >
-          <a onClick={(e) => e.preventDefault()} className="flex gap-1">
+          <a
+            onClick={(e) => e.preventDefault()}
+            className="flex gap-1"
+          >
             <p>Jadwal</p>
 
             <DownOutlined />
@@ -74,7 +79,10 @@ const Navbar = () => {
             items: Diklat,
           }}
         >
-          <a onClick={(e) => e.preventDefault()} className="flex gap-1">
+          <a
+            onClick={(e) => e.preventDefault()}
+            className="flex gap-1"
+          >
             <p>Diklat</p>
 
             <DownOutlined />
@@ -87,7 +95,10 @@ const Navbar = () => {
             items: LinkKajian,
           }}
         >
-          <a onClick={(e) => e.preventDefault()} className="flex gap-1">
+          <a
+            onClick={(e) => e.preventDefault()}
+            className="flex gap-1"
+          >
             <p>Link Kajian</p>
 
             <DownOutlined />
