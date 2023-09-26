@@ -6,16 +6,22 @@ export default {
   theme: {
     extend: {
       colors: {
+        //johan
+        greenBackground: "#379477",
+        greenText: "#038767",
+        black: "#0F172A",
+        paragraph: "#64748B",
+        yellow: "#FFEC94",
+        white: "#FFFFFF",
+        //alex
         primary: "#041059",
         primaryDark: "#041059",
         primaryLight: "#091877",
         TextDark: "#333333",
         TextLight: "#757575",
-        TextWhite: "#FFFFFF",
         TextYellow: "#FFEC94",
-        Gray1: "#FAFAFA",
-        Gray2: "#BCBFBF",
-        Green: "#379477",
+        Gray1: "#E2E8F0",
+        Gray2: "#CBD5E1",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
