@@ -1,10 +1,18 @@
-import React from "react";
+import DivisionSection from "../components/section/home/DivisionSection";
+import HeroSection from "../components/section/home/HeroSection";
+import HighlighSection from "../components/section/home/HighlighSection";
+import HistorySection from "../components/section/home/HistorySection";
+import PengurusSection from "../components/section/home/PengurusSection";
 
 const Home = () => {
   return (
-    <div className="px-5">
-      <div>Home</div>
-    </div>
+    <>
+      <HeroSection />
+      <HistorySection />
+      <PengurusSection />
+      <DivisionSection />
+      <HighlighSection />
+    </>
   );
 };
 

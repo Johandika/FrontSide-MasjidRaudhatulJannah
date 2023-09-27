@@ -5,18 +5,20 @@ import styles from "../../style";
 const Layout = () => {
   return (
     <div className="w-full">
-      <div className="w-full fixed bg-white">
+      <div className="w-full fixed bg-white z-20">
         <Navbar />
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-slate-50`}>
-        <div className={`${styles.boxWidth} min-h-screen pt-[90px] `}>
+      <div className="bg-wite">
+        <div>
           <Outlet />
         </div>
       </div>
 
       <div className={`${styles.paddingX} ${styles.flexCenter}  bg-greenBackground`}>
-        <div className={`${styles.boxWidth}  `}>{/* <Footer /> */}</div>
+        <div className={`${styles.boxWidth}  `}>
+          <Footer />
+        </div>
       </div>
     </div>
   );

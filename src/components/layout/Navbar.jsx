@@ -4,7 +4,6 @@ import { IoClose } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
-import { DownOutlined } from "@ant-design/icons";
 import { Dropdown } from "antd";
 import styles from "../../style";
 import { useState } from "react";
@@ -151,14 +150,6 @@ const Navbar = () => {
     setMenuIconStatus(!menuIconStatus);
   };
 
-  // const closeMenu = (submenuKey) => {
-  //   setSubMenuOpen({
-  //     ...subMenuOpen,
-  //     [submenuKey]: !subMenuOpen[submenuKey],
-  //   });
-  // };
-  console.log(active);
-
   return (
     <div className=" w-full overflow-hidden">
       <div className={`${styles.paddingX} ${styles.flexCenter} border-b-[1px]`}>
@@ -178,7 +169,7 @@ const Navbar = () => {
                   items: Jadwal,
                 }}
                 className={
-                  active === "Jadwal" ? "text-greenText font-semibold" : "text-black font-normal"
+                  active === "Jadwal" ? "text-greenText font-semibold " : "text-black font-normal "
                 }>
                 <a
                   onClick={(e) => {
@@ -187,7 +178,7 @@ const Navbar = () => {
                   }}
                   className="flex gap-1">
                   <p>Jadwal</p>
-                  <DownOutlined />
+                  <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
               </Dropdown>
 
@@ -197,7 +188,7 @@ const Navbar = () => {
                   items: Diklat,
                 }}
                 className={
-                  active === "Diklat" ? "text-greenText font-bold" : "text-black font-semibold"
+                  active === "Diklat" ? "text-greenText font-bold" : "text-black font-normal"
                 }>
                 <a
                   onClick={(e) => {
@@ -206,7 +197,7 @@ const Navbar = () => {
                   }}
                   className="flex gap-1">
                   <p>Diklat</p>
-                  <DownOutlined />
+                  <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
               </Dropdown>
 
@@ -214,7 +205,7 @@ const Navbar = () => {
               <Link
                 to={"/kegiatan"}
                 className={
-                  active === "Kegiatan" ? "text-greenText font-bold" : "text-black font-semibold"
+                  active === "Kegiatan" ? "text-greenText font-bold" : "text-black font-normal"
                 }
                 onClick={() => setActive("Kegiatan")}>
                 Kegiatan
@@ -224,7 +215,7 @@ const Navbar = () => {
               <Link
                 to={"/donasi"}
                 className={
-                  active === "Donasi" ? "text-greenText font-bold" : "text-black font-semibold"
+                  active === "Donasi" ? "text-greenText font-bold" : "text-black font-normal"
                 }
                 onClick={() => setActive("Donasi")}>
                 Donasi
@@ -236,9 +227,7 @@ const Navbar = () => {
                   items: LinkKajian,
                 }}
                 className={
-                  active === "LinkKajian"
-                    ? "text-greenText font-bold "
-                    : "text-black font-semibold "
+                  active === "LinkKajian" ? "text-greenText font-bold " : "text-black font-normal "
                 }>
                 <a
                   onClick={(e) => {
@@ -248,7 +237,7 @@ const Navbar = () => {
                   className="flex gap-1">
                   <p>Link Kajian</p>
 
-                  <DownOutlined />
+                  <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
               </Dropdown>
             </div>
@@ -265,7 +254,7 @@ const Navbar = () => {
                     }}
                   />
 
-                  <div className="flex flex-col absolute top-[90px] right-4 border-2  rounded-lg min-w-[160px] justify-center  p-1 ">
+                  <div className="bg-white flex flex-col absolute top-[90px] right-4 border-2  rounded-lg min-w-[160px] justify-center  p-1 ">
                     <ul className="flex flex-col  text-center  ">
                       {navLinks.map((menu, index) => (
                         <>
