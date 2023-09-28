@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { logo } from "../../assets/icons";
 import { IoClose } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
 
 import { Dropdown } from "antd";
 import styles from "../../style";
@@ -158,7 +161,10 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex flex-1 w-[20%] ">
               <Link to={"/"}>
-                <img src={logo} className="w-[60px] " />
+                <img
+                  src={logo}
+                  className="w-[60px] -my-3"
+                />
               </Link>
             </div>
 
@@ -169,14 +175,18 @@ const Navbar = () => {
                   items: Jadwal,
                 }}
                 className={
-                  active === "Jadwal" ? "text-greenText font-semibold " : "text-black font-normal "
-                }>
+                  active === "Jadwal"
+                    ? "text-greenText font-semibold "
+                    : "text-black font-normal "
+                }
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("Jadwal");
                   }}
-                  className="flex gap-1">
+                  className="flex gap-1"
+                >
                   <p>Jadwal</p>
                   <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
@@ -188,14 +198,18 @@ const Navbar = () => {
                   items: Diklat,
                 }}
                 className={
-                  active === "Diklat" ? "text-greenText font-bold" : "text-black font-normal"
-                }>
+                  active === "Diklat"
+                    ? "text-greenText font-bold"
+                    : "text-black font-normal"
+                }
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("Diklat");
                   }}
-                  className="flex gap-1">
+                  className="flex gap-1"
+                >
                   <p>Diklat</p>
                   <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
@@ -205,9 +219,12 @@ const Navbar = () => {
               <Link
                 to={"/kegiatan"}
                 className={
-                  active === "Kegiatan" ? "text-greenText font-bold" : "text-black font-normal"
+                  active === "Kegiatan"
+                    ? "text-greenText font-bold"
+                    : "text-black font-normal"
                 }
-                onClick={() => setActive("Kegiatan")}>
+                onClick={() => setActive("Kegiatan")}
+              >
                 Kegiatan
               </Link>
 
@@ -215,9 +232,12 @@ const Navbar = () => {
               <Link
                 to={"/donasi"}
                 className={
-                  active === "Donasi" ? "text-greenText font-bold" : "text-black font-normal"
+                  active === "Donasi"
+                    ? "text-greenText font-bold"
+                    : "text-black font-normal"
                 }
-                onClick={() => setActive("Donasi")}>
+                onClick={() => setActive("Donasi")}
+              >
                 Donasi
               </Link>
 
@@ -227,14 +247,18 @@ const Navbar = () => {
                   items: LinkKajian,
                 }}
                 className={
-                  active === "LinkKajian" ? "text-greenText font-bold " : "text-black font-normal "
-                }>
+                  active === "LinkKajian"
+                    ? "text-greenText font-bold "
+                    : "text-black font-normal "
+                }
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("LinkKajian");
                   }}
-                  className="flex gap-1">
+                  className="flex gap-1"
+                >
                   <p>Link Kajian</p>
 
                   <MdOutlineKeyboardArrowDown className="h-auto" />
@@ -248,21 +272,24 @@ const Navbar = () => {
                 <>
                   <IoClose
                     alt="menu"
-                    className="w-[36px] h-[36px] object-contain text-greenText"
+                    className="w-[36px] h-[36px] object-contain text-greenText -my-2"
                     onClick={() => {
                       setToggle(!toggle);
                     }}
                   />
 
-                  <div className="bg-white flex flex-col absolute top-[90px] right-4 border-2  rounded-lg min-w-[160px] justify-center  p-1 ">
+                  <div className="bg-white flex flex-col absolute top-[70px] right-4 border-2  rounded-lg min-w-[160px] justify-center  p-1 ">
                     <ul className="flex flex-col  text-center  ">
                       {navLinks.map((menu, index) => (
                         <>
                           <div
                             key={menu.id}
                             className={`flex flex-row items-center justify-center rounded-sm ${
-                              active === menu.id ? "text-greenText bg-neutral-100" : ""
-                            }`}>
+                              active === menu.id
+                                ? "text-greenText bg-neutral-100"
+                                : ""
+                            }`}
+                          >
                             <li className="py-2 ">
                               {/* Menu */}
                               <Link
@@ -270,8 +297,11 @@ const Navbar = () => {
                                 onClick={() => {
                                   toggleSubMenu(menu.id);
                                   setActive(menu.id);
-                                }}>
-                                <div className={`flex items-center justify-center font-semibold `}>
+                                }}
+                              >
+                                <div
+                                  className={`flex items-center justify-center font-semibold `}
+                                >
                                   {menu.title}
                                   {menu.submenu &&
                                     (subMenuOpen[menu.id] ? (
@@ -287,17 +317,23 @@ const Navbar = () => {
                                 <ul className="text-left  p-2">
                                   {menu.submenu.map((submenu, index) => (
                                     <>
-                                      <li key={submenu.key} className="py-1">
+                                      <li
+                                        key={submenu.key}
+                                        className="py-1"
+                                      >
                                         <Link
                                           to={submenu.link}
                                           onClick={() => {
                                             setToggle(!toggle);
                                             toggleSubMenu(menu.id);
-                                          }}>
+                                          }}
+                                        >
                                           - {submenu.title}
                                         </Link>
                                       </li>
-                                      {index !== menu.submenu.length - 1 && <hr />}
+                                      {index !== menu.submenu.length - 1 && (
+                                        <hr />
+                                      )}
                                     </>
                                   ))}
                                 </ul>
@@ -313,7 +349,7 @@ const Navbar = () => {
               ) : (
                 <HiMenu
                   alt="menu"
-                  className="w-[36px] h-[36px] object-contain text-greenText"
+                  className="w-[36px] h-[36px] object-contain text-greenText -my-2"
                   onClick={() => setToggle(!toggle)}
                 />
               )}

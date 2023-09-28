@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { kegiatan } from "../assets/icons";
+import { kegiatan } from "../assets/images";
 
 export default function SwiperModule() {
   const progressCircle = useRef(null);
@@ -24,7 +24,7 @@ export default function SwiperModule() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -33,7 +33,8 @@ export default function SwiperModule() {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="mySwiper ">
+        className="mySwiper"
+      >
         <SwiperSlide className="relative">
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>{" "}
           <div className="absolute bottom-16 right-3 left-3 ">
@@ -42,7 +43,11 @@ export default function SwiperModule() {
               Melakukan penanaman Pohon Pahala oleh kru Erje TV
             </p>
           </div>
-          <img src={kegiatan} alt="Slide1" style={{ height: 500, objectFit: "cover" }} />
+          <img
+            src={kegiatan}
+            alt="Slide1"
+            style={{ height: 500, objectFit: "cover" }}
+          />
         </SwiperSlide>
         <SwiperSlide className="relative">
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>{" "}
@@ -53,12 +58,26 @@ export default function SwiperModule() {
               Melakukan penanaman Pohon Pahala oleh kru Erje TV
             </p>
           </div>
-          <img src={kegiatan} alt="Slide1" style={{ height: 500, objectFit: "cover" }} />
+          <img
+            src={kegiatan}
+            alt="Slide1"
+            style={{ height: 500, objectFit: "cover" }}
+          />
         </SwiperSlide>
 
-        <div className="autoplay-progress" slot="container-end">
-          <svg viewBox="0 0 48 48" ref={progressCircle}>
-            <circle cx="24" cy="24" r="20"></circle>
+        <div
+          className="autoplay-progress opacity-50"
+          slot="container-end"
+        >
+          <svg
+            viewBox="0 0 48 48"
+            ref={progressCircle}
+          >
+            <circle
+              cx="24"
+              cy="24"
+              r="20"
+            ></circle>
           </svg>
           <span ref={progressContent}></span>
         </div>

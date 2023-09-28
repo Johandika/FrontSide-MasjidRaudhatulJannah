@@ -24,13 +24,13 @@
   background-color: #555;
 }
 
-.text-shadow{
-  text-shadow: 1px 5px 13px rgba(0,0,0,0.69)
+.text-shadow {
+  text-shadow: 1px 5px 13px rgba(0, 0, 0, 0.69);
 }
 
 @layer components {
-  .text-judul{
-    @apply text-center text-5xl text-greenText font-extrabold
+  .text-judul {
+    @apply text-center text-5xl text-greenText font-extrabold;
   }
 }
 
@@ -87,4 +87,23 @@
   stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
   stroke-dasharray: 125.6;
   transform: rotate(-90deg);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  right: 10px;
+  padding: 30px;
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff;
 }

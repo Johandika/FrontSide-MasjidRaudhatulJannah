@@ -1,4 +1,4 @@
-import { kegiatan, profile } from "../../../assets/icons";
+import { kegiatan, profile } from "../../../assets/images";
 import styles from "../../../style";
 import Button from "../../Button";
 import { BsWhatsapp } from "react-icons/bs";
@@ -58,14 +58,19 @@ const divisions = [
 const DivisionSection = () => {
   return (
     <>
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-Gray2 rounded-t-[4rem] -mt-14`}>
-        <div className={`${styles.boxWidth}  mt-40 mb-48 flex flex-col gap-20 `}>
+      <div
+        className={`${styles.paddingX} ${styles.flexCenter} bg-Gray2 rounded-t-[4rem] -mt-14`}
+      >
+        <div
+          className={`${styles.boxWidth}  mt-40 mb-48 flex flex-col gap-20 `}
+        >
           <h1 className="text-judul ">Divisi RJIC</h1>
           <div className="flex flex-wrap gap-5 justify-center">
             {divisions.map((division) => (
               <div
                 className=" bg-white min-h-[350px] sm:min-h-[500px] w-full sm:w-[48%] md:w-[32%]  relative rounded-lg overflow-hidden "
-                key={division.id}>
+                key={division.id}
+              >
                 <div className="p-4 flex flex-col gap-8">
                   <img
                     src={division.foto}
@@ -73,12 +78,22 @@ const DivisionSection = () => {
                     className="object-cover rounded-lg h-72 w-full"
                   />
                   <div className="text-justify">
-                    <h1 className="text-3xl font-bold text-greenText">{division.divisi}</h1>
+                    <h1 className="text-3xl font-bold text-greenText">
+                      {division.divisi}
+                    </h1>
                     <p className="mt-3"> &emsp;&emsp;{division.body}</p>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Button outline icon={FaRegUser} label={`${division.pj} (PJ)`} />
-                    <Button outline icon={BsWhatsapp} label={division.kontak} />
+                    <Button
+                      outline
+                      icon={FaRegUser}
+                      label={`${division.pj} (PJ)`}
+                    />
+                    <Button
+                      outline
+                      icon={BsWhatsapp}
+                      label={division.kontak}
+                    />
                   </div>
                 </div>
                 {/* <div className="absolute bottom-7 left-0 right-0 text-left pl-4 text-white ">
