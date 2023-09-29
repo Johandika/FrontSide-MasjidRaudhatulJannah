@@ -49,32 +49,18 @@ function Card({ title, logo, number, index, about }) {
         className="bg-white p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full font-bold text-2xl text-greenText relative "
         type="button"
         aria-expanded={active}
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
         <div>
           {index + 1}. {title}
         </div>
         <div className="flex items-center gap-4 sm:gap-0">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-10 sm:h-12 "
-          />
-          <p className="ml-0 sm:ml-5 text-xl sm:text-2xl text-blue-600">
-            {" "}
-            {number}
-          </p>
+          <img src={logo} alt="Logo" className="h-10 sm:h-12 " />
+          <p className="ml-0 sm:ml-5 text-xl sm:text-2xl text-blue-600"> {number}</p>
         </div>
         {active ? (
-          <FiChevronUp
-            size={24}
-            className="hidden sm:flex"
-          />
+          <FiChevronUp size={24} className="hidden sm:flex" />
         ) : (
-          <FiChevronDown
-            size={24}
-            className="hidden sm:flex"
-          />
+          <FiChevronDown size={24} className="hidden sm:flex" />
         )}
         {active ? (
           <FiChevronUp
@@ -99,11 +85,10 @@ const Donasi = () => {
       <div className={`${styles.boxWidth}  my-20 flex flex-col gap-20`}>
         {/* Judul dan Deskripsi */}
         <div className="flex flex-col justify-center items-center text-center gap-9">
-          <h1 className="text-judul ">Sejarah RJIC</h1>
+          <h1 className="text-judul ">Donasi</h1>
           <p className="w-full sm:w-[90%] md:w-[70%]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
-            eaque possimus ipsa ipsum cumque nihil quas voluptates quae.
-            Reprehenderit, animi!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo eaque possimus ipsa
+            ipsum cumque nihil quas voluptates quae. Reprehenderit, animi!
           </p>
         </div>
 

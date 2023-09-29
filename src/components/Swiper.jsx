@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { kegiatan } from "../assets/images";
+import { pohonpahala } from "../assets/images";
 
 export default function SwiperModule() {
   const progressCircle = useRef(null);
@@ -33,9 +33,8 @@ export default function SwiperModule() {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="mySwiper"
-      >
-        <SwiperSlide className="relative">
+        className="mySwiper rounded-xl border-4 border-white ">
+        <SwiperSlide>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>{" "}
           <div className="absolute bottom-16 right-3 left-3 ">
             <h1 className="text-3xl font-bold text-white">Pohon Pahala</h1>
@@ -43,41 +42,22 @@ export default function SwiperModule() {
               Melakukan penanaman Pohon Pahala oleh kru Erje TV
             </p>
           </div>
-          <img
-            src={kegiatan}
-            alt="Slide1"
-            style={{ height: 500, objectFit: "cover" }}
-          />
+          <img src={pohonpahala} alt="Slide1" style={{ height: 500, objectFit: "cover" }} />
         </SwiperSlide>
         <SwiperSlide className="relative">
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>{" "}
-          {/* Overlay merah dengan transparansi */}
           <div className="absolute bottom-10 right-3 left-3 ">
             <h1 className="text-4xl font-bold text-white">Pohon Pahala</h1>
             <p className="font-base text-white mt-4">
               Melakukan penanaman Pohon Pahala oleh kru Erje TV
             </p>
           </div>
-          <img
-            src={kegiatan}
-            alt="Slide1"
-            style={{ height: 500, objectFit: "cover" }}
-          />
+          <img src={pohonpahala} alt="Slide1" style={{ height: 500, objectFit: "cover" }} />
         </SwiperSlide>
 
-        <div
-          className="autoplay-progress opacity-50"
-          slot="container-end"
-        >
-          <svg
-            viewBox="0 0 48 48"
-            ref={progressCircle}
-          >
-            <circle
-              cx="24"
-              cy="24"
-              r="20"
-            ></circle>
+        <div className="autoplay-progress opacity-50" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}>
+            <circle cx="24" cy="24" r="20"></circle>
           </svg>
           <span ref={progressContent}></span>
         </div>

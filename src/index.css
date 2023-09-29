@@ -107,3 +107,35 @@
 .swiper-pagination-bullet {
   background-color: #fff;
 }
+
+/* CSS Button */
+         
+.btn-grad {
+  background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  animation: colorWave 5s linear infinite; /* Ubah durasi sesuai keinginan */
+}
+
+@keyframes colorWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  
+  33% {
+    background-position: 50% 100%;
+  }
+  66% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 50% 25%;
+  }
+ 
+}
+
