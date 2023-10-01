@@ -160,7 +160,12 @@ const Navbar = () => {
           <div className="w-full  py-4  items-center  border-slate-200 flex">
             {/* Logo */}
             <div className="flex flex-1 w-[20%] ">
-              <Link to={"/"}>
+              <Link
+                to={"/"}
+                onClick={() => {
+                  setActive("Home");
+                }}
+              >
                 <img
                   src={logo}
                   className="w-[60px] -my-3"
@@ -280,6 +285,7 @@ const Navbar = () => {
 
                   <div className="bg-white flex flex-col absolute top-[70px] right-4 border-2  rounded-lg min-w-[160px] justify-center  p-1 ">
                     <ul className="flex flex-col  text-center  ">
+                      {/* Perulangan menu */}
                       {navLinks.map((menu, index) => (
                         <>
                           <div
@@ -292,25 +298,48 @@ const Navbar = () => {
                           >
                             <li className="py-2 ">
                               {/* Menu */}
-                              <Link
-                                to={menu.link}
-                                onClick={() => {
-                                  toggleSubMenu(menu.id);
-                                  setActive(menu.id);
-                                }}
-                              >
-                                <div
-                                  className={`flex items-center justify-center font-semibold `}
+                              {/* Cek apa dia punya submenu, jika iya maka menu utamanya tidak akan mmenjadi link melainkan div yang membuka submenu tapi jika tidak maka dia akan link langsung */}
+                              {!menu.submenu ? (
+                                <Link
+                                  to={menu.link}
+                                  onClick={() => {
+                                    toggleSubMenu(menu.id);
+                                    setActive(menu.id);
+                                  }}
                                 >
-                                  {menu.title}
-                                  {menu.submenu &&
-                                    (subMenuOpen[menu.id] ? (
-                                      <MdOutlineKeyboardArrowUp className="ml-1" />
-                                    ) : (
-                                      <MdOutlineKeyboardArrowDown className="ml-1" />
-                                    ))}
+                                  <div
+                                    className={`flex items-center justify-center font-semibold `}
+                                  >
+                                    {menu.title}
+                                    {menu.submenu &&
+                                      (subMenuOpen[menu.id] ? (
+                                        <MdOutlineKeyboardArrowUp className="ml-1" />
+                                      ) : (
+                                        <MdOutlineKeyboardArrowDown className="ml-1" />
+                                      ))}
+                                  </div>
+                                </Link>
+                              ) : (
+                                <div
+                                  to={menu.link}
+                                  onClick={() => {
+                                    toggleSubMenu(menu.id);
+                                    setActive(menu.id);
+                                  }}
+                                >
+                                  <div
+                                    className={`flex items-center justify-center font-semibold `}
+                                  >
+                                    {menu.title}
+                                    {menu.submenu &&
+                                      (subMenuOpen[menu.id] ? (
+                                        <MdOutlineKeyboardArrowUp className="ml-1" />
+                                      ) : (
+                                        <MdOutlineKeyboardArrowDown className="ml-1" />
+                                      ))}
+                                  </div>
                                 </div>
-                              </Link>
+                              )}
 
                               {/* Submenu */}
                               {menu.submenu && subMenuOpen[menu.id] && (

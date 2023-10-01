@@ -1,38 +1,90 @@
+import { useState } from "react";
 import styles from "../style";
+import KegiatanTerbaru from "../components/section/kegiatan/KegiatanTerbaru";
+import KegiatanList from "../components/section/kegiatan/KegiatanList";
+import Button from "../components/Button";
+import { HiChevronDoubleRight } from "react-icons/hi";
+
+const divisions = [
+  { id: 1, title: "Semua Divisi", content: "Isi Card 1" },
+  { id: 2, title: "Divisi Dakwah", content: "Isi Card 2" },
+  { id: 3, title: "Divisi Sosial", content: "Isi Card 3" },
+  { id: 4, title: "Divisi Media", content: "Isi Card 4" },
+  { id: 5, title: "Divisi Sekretariat", content: "Isi Card 5" },
+  { id: 6, title: "Divisi Cheetah", content: "Isi Card 6" },
+];
 
 const Kegiatan = () => {
-  // Buat data card sederhana untuk keperluan contoh
-  const cards = [
-    { id: 1, title: "Card 1", content: "Isi Card 1" },
-    { id: 2, title: "Card 2", content: "Isi Card 2" },
-    { id: 3, title: "Card 3", content: "Isi Card 3" },
-    { id: 4, title: "Card 4", content: "Isi Card 4" },
-    { id: 5, title: "Card 5", content: "Isi Card 5" },
-    { id: 6, title: "Card 6", content: "Isi Card 6" },
-    { id: 7, title: "Card 7", content: "Isi Card 7" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-    { id: 8, title: "Card 8", content: "Isi Card 8" },
-  ];
+  const [active, setActive] = useState(1);
+  console.log(active);
 
   return (
-    <div className={`${styles.paddingX} ${styles.flexCenter} bg-Gray2 rounded-t-[4rem]`}>
-      <div className={`${styles.boxWidth}  mt-40 mb-48 flex flex-col gap-20 `}>
-        <div className="flex overflow-x-auto max-w-screen-xl gap-5" style={{ width: "1000px" }}>
-          {cards.map((card) => (
-            <div key={card.id} className="bg-white min-w-[500px] rounded-lg p-4">
-              <h2 className="text-2xl font-semibold">{card.title}</h2>
-              <p>{card.content}</p>
+    <div
+      className={`${styles.paddingX} ${styles.flexCenter} bg-white rounded-t-[4rem]`}
+    >
+      <div className={`${styles.boxWidth} flex flex-col gap-20 `}>
+        <div className={`mt-[62px] mb-48 flex flex-row w-full`}>
+          <div className=" flex flex-row flex-1 flex-wrap min-w-fit">
+            {divisions.map((division, index) => (
+              <>
+                <div className=" basis-1/2 sm:basis-1/4 md:basis-1/6  text-center border-t-[4px] border-b-[1px] border-greenBackground ">
+                  <div
+                    className={`py-2 ${
+                      active === division.id && " bg-neutral-100"
+                    }`}
+                  >
+                    <div
+                      className={` py-2 text-sm text-black cursor-pointer border-Gray1 
+                    ${index === divisions.length - 1 ? "" : "border-r-2"}
+                    ${
+                      active === division.id
+                        ? "text-greenText font-bold"
+                        : "font-semibold"
+                    }
+                     `}
+                      onClick={() => setActive(division.id)}
+                    >
+                      {division.title}
+                    </div>
+                  </div>
+                </div>
+              </>
+            ))}
+
+            {divisions.map((division) => (
+              <div
+                key={division.id}
+                className="w-full"
+              >
+                {division.id === active && (
+                  <div className="mt-10 flex flex-col gap-5">
+                    <div className="border-l-2 border-red-500 uppercase pl-3 font-bold text-black ">
+                      Terbaru
+                    </div>
+                    <KegiatanTerbaru
+                      division={division}
+                      divisions={divisions}
+                    />
+                    <div className="border-l-2 border-red-500 uppercase pl-3 font-bold text-black mt-10">
+                      {division.title}
+                    </div>
+                    <KegiatanList
+                      division={division}
+                      divisions={divisions}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="mx-auto mt-14">
+              <Button
+                label={"Lihat lebih banyak"}
+                iconRight={HiChevronDoubleRight}
+                className={"px-8"}
+              />
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

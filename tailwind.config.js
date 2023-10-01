@@ -9,7 +9,7 @@ export default {
         //johan
         greenBackground: "#379477",
         greenText: "#038767",
-        black: "#0F172A",
+        black: "#34364A",
         paragraph: "#64748B",
         yellow: "#FFEC94",
         white: "#FFFFFF",
