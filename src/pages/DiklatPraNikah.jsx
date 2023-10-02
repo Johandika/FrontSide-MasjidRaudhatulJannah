@@ -52,7 +52,7 @@ const DiklatPraNikah = () => {
                   rounded-lg w-full xs:w-10/12 sm:w-5/6  mx-auto relative"
                 key={diklat.id}
               >
-                <div className="absolute -top-5 right-0 btn-grad py-2 px-8 text-white shadow-md shadow-red-600 text-sm sm:text-base">
+                <div className="absolute -top-5 right-0 btn-grad rounded-full py-2 px-8 text-white shadow-md shadow-red-600 text-sm sm:text-base">
                   Diklat Mendatang
                 </div>
                 <div className="p-3 flex flex-col lg:flex-row gap-8 ">
