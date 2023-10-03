@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  redirect,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../components/layout/Layout";
 import Donasi from "../pages/Donasi";
@@ -16,11 +12,17 @@ import TahsinAnak from "../pages/TahsinAnak";
 import TahsinIkhwan from "../pages/TahsinIkhwan";
 import Kajian from "../pages/Kajian";
 import LinkTablighAkbar from "../pages/LinkTablighAkbar";
+import ScrollToTop from "../ScrollToTop";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <>
+        <Layout />
+        <ScrollToTop /> {/* ScrollToTop agar setiap pindah halaman dimulai dari atas */}
+      </>
+    ),
     children: [
       {
         path: "/",
