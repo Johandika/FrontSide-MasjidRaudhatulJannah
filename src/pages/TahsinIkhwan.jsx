@@ -214,7 +214,7 @@ const TahsinCard = ({ kelas }) => {
       <div className="text-greenBackground font-bold">{kelas.pemateri}</div>
       <ul>
         {kelas.peserta.map((peserta, index) => (
-          <li key={peserta}>
+          <li key={peserta} className="text-neutral-600">
             {index + 1}. {peserta}
           </li>
         ))}
