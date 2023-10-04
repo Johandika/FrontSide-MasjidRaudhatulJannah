@@ -96,85 +96,189 @@ const tahsins = [
       },
     ],
   },
+  {
+    id: 2,
+    kategori: "Tahsin Akhwat",
+    hari: [
+      {
+        namaHari: "Senin dan Rabu",
+        kelas: [
+          {
+            namaKelas: "1A",
+            pemateri: "Ust. Yuslan",
+            peserta: ["Nanda", "Suim", "Dhea"],
+          },
+          {
+            namaKelas: "2A",
+            pemateri: "Ust. Yuslan",
+            peserta: ["Okta", "Yola", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "2B",
+            pemateri: "Ust. Yuslan",
+
+            peserta: ["Reni", "Desi", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "3A",
+            pemateri: "Ust. Anum",
+            peserta: ["Inun", "Anum", "Hanif", "Abdul"],
+          },
+        ],
+      },
+      {
+        namaHari: "Selasa dan Kamis",
+        kelas: [
+          {
+            namaKelas: "1A",
+            pemateri: "Ust. Yuslan",
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "1B",
+            pemateri: "Ust. Yuslan",
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "2A",
+            pemateri: "Ust. Yuslan",
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "2B",
+            pemateri: "Ust. Yuslan",
+
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "3A",
+            pemateri: "Ust. Anum",
+            peserta: ["Nonononoo", "Naufal", "Hanif", "Abdul"],
+          },
+        ],
+      },
+      {
+        namaHari: "Jumat dan Ahad",
+        kelas: [
+          {
+            namaKelas: "1A",
+            pemateri: "Ust. Yuslan",
+            peserta: ["Gogogogogo", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "1B",
+            pemateri: "Ust. Yuslan",
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "2A",
+            pemateri: "Ust. Yuslan",
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "2B",
+            pemateri: "Ust. Yuslan",
+
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+          {
+            namaKelas: "3A",
+            pemateri: "Ust. Anum",
+            peserta: ["johandika", "Naufal", "Hanif", "Abdul"],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
-const TahsinAnak = () => {
-  const [categoryActive, setCategoryActive] = useState("Tahsin Ikhwan");
-  const [hariActive, setHariActive] = useState("Senin dan Rabu");
+// Fungsi untuk melakukan filter berdasarkan kategori dan hari yang aktif
+const filterTahsinData = (tahsins, kategori, hari) => {
+  return tahsins
+    .filter((tahsin) => tahsin.kategori === kategori)
+    .map((tahsin) => ({
+      ...tahsin,
+      hari: tahsin.hari.filter((h) => h.namaHari === hari),
+    }))
+    .filter((tahsin) => tahsin.hari.length > 0);
+};
 
-  // Filter pertama untuk kategori
-  const filteredTahsins = tahsins.filter(
-    (tahsin) => categoryActive === tahsin.kategori
-  );
-
-  // Filter kedua untuk hari
-  const filteredKelas = tahsins.flatMap((tahsin) =>
-    tahsin.hari
-      .filter((hari) => hari.namaHari === hariActive)
-      .flatMap((hari) => hari.kelas)
-  );
-
-  // Menggabungkan hasil kedua filter
-  const combinedFilter = [...filteredTahsins, ...filteredKelas];
-
+// Komponen untuk menampilkan data dalam bentuk card
+const TahsinCard = ({ kelas }) => {
   return (
-    <div
-      className={`${styles.paddingX} ${styles.flexCenter} pt-[60px] bg-Gray1`}
-    >
-      <div className={`${styles.boxWidth}  my-20 flex flex-col gap-20`}>
-        <div>
-          <h1>Filter Data Tahsins</h1>
-          <div>
-            <label>Kategori Aktif:</label>
-            <select
-              value={categoryActive}
-              onChange={(e) => setCategoryActive(e.target.value)}
-            >
-              {/* Tambahkan opsi kategori sesuai data yang ada */}
-              {tahsins.map((tahsin) => (
-                <option
-                  key={tahsin.id}
-                  value={tahsin.kategori}
-                >
-                  {tahsin.kategori}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label>Hari Aktif:</label>
-            <select
-              value={hariActive}
-              onChange={(e) => setHariActive(e.target.value)}
-            >
-              {/* Tambahkan opsi hari sesuai data yang ada */}
-              {tahsins
-                .flatMap((tahsin) => tahsin.hari)
-                .map((hari) => (
-                  <option
-                    key={hari.namaHari}
-                    value={hari.namaHari}
-                  >
-                    {hari.namaHari}
-                  </option>
-                ))}
-            </select>
-          </div>
-          <div>
-            <h2>Hasil Gabungan Filter:</h2>
-            <ul>
-              {combinedFilter.map((item) => (
-                <li key={item.namaKelas || item.kategori}>
-                  {/* Tampilkan data sesuai dengan kondisi */}
-                  {item.namaKelas || item.kategori}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div className="card">
+      <h2>{kelas.namaKelas}</h2>
+      <p>Pemateri: {kelas.pemateri}</p>
+      <ul>
+        {kelas.peserta.map((peserta) => (
+          <li key={peserta}>{peserta}</li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default TahsinAnak;
+// Komponen utama untuk menampilkan hasil filter untuk setiap kategori dan hari yang aktif
+const FilteredTahsinCards = ({ kategori, hari }) => {
+  const filteredTahsins = filterTahsinData(tahsins, kategori, hari);
+
+  return (
+    <div className="filtered-tahsins">
+      {filteredTahsins.map((tahsin) => (
+        <div key={tahsin.id}>
+          <h1>{tahsin.kategori}</h1>
+          {tahsin.hari.map((h) => (
+            <div key={h.namaHari}>
+              <h2>{h.namaHari}</h2>
+              {h.kelas.map((kelas) => (
+                <TahsinCard key={kelas.namaKelas} kelas={kelas} />
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Contoh penggunaan komponen FilteredTahsinCards
+function App() {
+  const [kategori, setKategori] = useState("Tahsin Ikhwan");
+  const [hari, setHari] = useState("Senin dan Rabu");
+
+  const handleKategoriChange = (event) => {
+    setKategori(event.target.value);
+  };
+
+  const handleHariChange = (event) => {
+    setHari(event.target.value);
+  };
+
+  return (
+    <div className={`${styles.paddingX} ${styles.flexCenter} pt-[60px] bg-Gray1`}>
+      <div className={`${styles.boxWidth}  my-20 flex flex-col gap-20`}>
+        <div className="App">
+          <div>
+            <label htmlFor="kategori">Pilih Kategori:</label>
+            <select id="kategori" onChange={handleKategoriChange} value={kategori}>
+              <option value="Tahsin Ikhwan">Tahsin Ikhwan</option>
+              <option value="Tahsin Akhwat">Tahsin Akhwat</option>
+              {/* Tambahkan opsi kategori lainnya di sini */}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="hari">Pilih Hari:</label>
+            <select id="hari" onChange={handleHariChange} value={hari}>
+              <option value="Senin dan Rabu">Senin dan Rabu</option>
+              <option value="Selasa dan Kamis">Selasa dan Kamis</option>
+              <option value="Jumat dan Ahad">Jumat dan Ahad</option>
+            </select>
+          </div>
+          <FilteredTahsinCards kategori={kategori} hari={hari} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;

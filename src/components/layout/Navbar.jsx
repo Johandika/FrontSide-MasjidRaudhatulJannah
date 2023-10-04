@@ -2,16 +2,13 @@ import { Link } from "react-router-dom";
 import { logo } from "../../assets/icons";
 import { IoClose } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
-import {
-  MdOutlineKeyboardArrowDown,
-  MdOutlineKeyboardArrowUp,
-} from "react-icons/md";
+import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 import { Dropdown } from "antd";
 import styles from "../../style";
 import { useState } from "react";
 
-const navLinks = [
+export const navLinks = [
   {
     id: "home",
     title: "Home",
@@ -24,21 +21,16 @@ const navLinks = [
     submenu: [
       {
         key: "1",
-        link: "/tahsinIkhwan",
-        title: "Tahsin Ikhwan",
+        link: "/tahsin",
+        title: "Tahsin",
       },
       {
         key: "2",
-        link: "/tahsinAnak",
-        title: "Tahsin Anak",
-      },
-      {
-        key: "3",
         link: "/kajian",
         title: "Kajian Rutin",
       },
       {
-        key: "4",
+        key: "3",
         link: "/bahasaArab",
         title: "Kelas Bahasa Arab",
       },
@@ -96,18 +88,14 @@ const navLinks = [
 const Jadwal = [
   {
     key: "1",
-    label: <Link to={"/tahsinIkhwan"}> Tahsin Ikhwan</Link>,
+    label: <Link to={"/tahsin"}> Tahsin</Link>,
   },
   {
     key: "2",
-    label: <Link to={"/tahsinAnak"}>Tahsin Anak</Link>,
-  },
-  {
-    key: "3",
     label: <Link to={"/kajian"}>Kajian Rutin</Link>,
   },
   {
-    key: "4",
+    key: "3",
     label: <Link to={"/bahasaArab"}>Kelas Bahasa Arab</Link>,
   },
 ];
@@ -164,12 +152,8 @@ const Navbar = () => {
                 to={"/"}
                 onClick={() => {
                   setActive("Home");
-                }}
-              >
-                <img
-                  src={logo}
-                  className="w-[60px] -my-3"
-                />
+                }}>
+                <img src={logo} className="w-[60px] -my-3" />
               </Link>
             </div>
 
@@ -180,18 +164,14 @@ const Navbar = () => {
                   items: Jadwal,
                 }}
                 className={
-                  active === "Jadwal"
-                    ? "text-greenText font-semibold "
-                    : "text-black font-normal "
-                }
-              >
+                  active === "Jadwal" ? "text-greenText font-semibold " : "text-black font-normal "
+                }>
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("Jadwal");
                   }}
-                  className="flex gap-1"
-                >
+                  className="flex gap-1">
                   <p>Jadwal</p>
                   <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
@@ -203,18 +183,14 @@ const Navbar = () => {
                   items: Diklat,
                 }}
                 className={
-                  active === "Diklat"
-                    ? "text-greenText font-bold"
-                    : "text-black font-normal"
-                }
-              >
+                  active === "Diklat" ? "text-greenText font-bold" : "text-black font-normal"
+                }>
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("Diklat");
                   }}
-                  className="flex gap-1"
-                >
+                  className="flex gap-1">
                   <p>Diklat</p>
                   <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
@@ -224,12 +200,9 @@ const Navbar = () => {
               <Link
                 to={"/kegiatan"}
                 className={
-                  active === "Kegiatan"
-                    ? "text-greenText font-bold"
-                    : "text-black font-normal"
+                  active === "Kegiatan" ? "text-greenText font-bold" : "text-black font-normal"
                 }
-                onClick={() => setActive("Kegiatan")}
-              >
+                onClick={() => setActive("Kegiatan")}>
                 Kegiatan
               </Link>
 
@@ -237,12 +210,9 @@ const Navbar = () => {
               <Link
                 to={"/donasi"}
                 className={
-                  active === "Donasi"
-                    ? "text-greenText font-bold"
-                    : "text-black font-normal"
+                  active === "Donasi" ? "text-greenText font-bold" : "text-black font-normal"
                 }
-                onClick={() => setActive("Donasi")}
-              >
+                onClick={() => setActive("Donasi")}>
                 Donasi
               </Link>
 
@@ -252,18 +222,14 @@ const Navbar = () => {
                   items: LinkKajian,
                 }}
                 className={
-                  active === "LinkKajian"
-                    ? "text-greenText font-bold "
-                    : "text-black font-normal "
-                }
-              >
+                  active === "LinkKajian" ? "text-greenText font-bold " : "text-black font-normal "
+                }>
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("LinkKajian");
                   }}
-                  className="flex gap-1"
-                >
+                  className="flex gap-1">
                   <p>Link Kajian</p>
 
                   <MdOutlineKeyboardArrowDown className="h-auto" />
@@ -291,11 +257,8 @@ const Navbar = () => {
                           <div
                             key={menu.id}
                             className={`flex flex-row items-center justify-center rounded-sm ${
-                              active === menu.id
-                                ? "text-greenText bg-neutral-100"
-                                : ""
-                            }`}
-                          >
+                              active === menu.id ? "text-greenText bg-neutral-100" : ""
+                            }`}>
                             <li className="py-2 ">
                               {/* Menu */}
                               {/* Cek apa dia punya submenu, jika iya maka menu utamanya tidak akan mmenjadi link melainkan div yang membuka submenu tapi jika tidak maka dia akan link langsung */}
@@ -305,11 +268,9 @@ const Navbar = () => {
                                   onClick={() => {
                                     toggleSubMenu(menu.id);
                                     setActive(menu.id);
-                                  }}
-                                >
+                                  }}>
                                   <div
-                                    className={`flex items-center justify-center font-semibold `}
-                                  >
+                                    className={`flex items-center justify-center font-semibold `}>
                                     {menu.title}
                                     {menu.submenu &&
                                       (subMenuOpen[menu.id] ? (
@@ -325,11 +286,9 @@ const Navbar = () => {
                                   onClick={() => {
                                     toggleSubMenu(menu.id);
                                     setActive(menu.id);
-                                  }}
-                                >
+                                  }}>
                                   <div
-                                    className={`flex items-center justify-center font-semibold `}
-                                  >
+                                    className={`flex items-center justify-center font-semibold `}>
                                     {menu.title}
                                     {menu.submenu &&
                                       (subMenuOpen[menu.id] ? (
@@ -346,23 +305,17 @@ const Navbar = () => {
                                 <ul className="text-left  p-2">
                                   {menu.submenu.map((submenu, index) => (
                                     <>
-                                      <li
-                                        key={submenu.key}
-                                        className="py-1"
-                                      >
+                                      <li key={submenu.key} className="py-1">
                                         <Link
                                           to={submenu.link}
                                           onClick={() => {
                                             setToggle(!toggle);
                                             toggleSubMenu(menu.id);
-                                          }}
-                                        >
+                                          }}>
                                           - {submenu.title}
                                         </Link>
                                       </li>
-                                      {index !== menu.submenu.length - 1 && (
-                                        <hr />
-                                      )}
+                                      {index !== menu.submenu.length - 1 && <hr />}
                                     </>
                                   ))}
                                 </ul>

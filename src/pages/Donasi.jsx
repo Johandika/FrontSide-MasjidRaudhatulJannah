@@ -49,32 +49,19 @@ function Card({ title, logo, number, index, about }) {
         className="bg-white p-4 flex flex-col sm:flex-row  items-start sm:items-center w-full font-bold text-2xl text-greenText relative "
         type="button"
         aria-expanded={active}
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
         <div className="w-[440px] flex justify-start text-start">
           {index + 1}. {title}
         </div>
         <div className="flex items-center w-[380px] gap-4 sm:gap-0 ">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-10 sm:h-12 "
-          />
-          <p className="ml-0 sm:ml-5 text-xl sm:text-xl  text-gray-500">
-            {number}
-          </p>
+          <img src={logo} alt="Logo" className="h-10 sm:h-12 " />
+          <p className="ml-0 sm:ml-5 text-xl sm:text-xl  text-gray-500">{number}</p>
         </div>
         {/* Web Icon Layout */}
         {active ? (
-          <FiChevronUp
-            size={24}
-            className="hidden sm:flex ml-auto"
-          />
+          <FiChevronUp size={24} className="hidden sm:flex ml-auto" />
         ) : (
-          <FiChevronDown
-            size={24}
-            className="hidden sm:flex ml-auto"
-          />
+          <FiChevronDown size={24} className="hidden sm:flex ml-auto" />
         )}
         {/* Mobile Icon Layout */}
         {active ? (
@@ -102,9 +89,8 @@ const Donasi = () => {
         <div className="flex flex-col justify-center items-center text-center gap-9">
           <h1 className="text-judul ">Donasi</h1>
           <p className="w-full sm:w-[90%] md:w-[70%]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
-            eaque possimus ipsa ipsum cumque nihil quas voluptates quae.
-            Reprehenderit, animi!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo eaque possimus ipsa
+            ipsum cumque nihil quas voluptates quae. Reprehenderit, animi!
           </p>
         </div>
 

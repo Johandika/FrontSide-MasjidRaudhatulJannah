@@ -53,11 +53,7 @@ const router = createBrowserRouter([
         element: <LinkTablighAkbar />,
       },
       {
-        path: "/tahsinAnak",
-        element: <TahsinAnak />,
-      },
-      {
-        path: "/tahsinIkhwan",
+        path: "/tahsin",
         element: <TahsinIkhwan />,
       },
       {
