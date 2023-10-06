@@ -126,8 +126,7 @@ let LinkKajian = [
   },
 ];
 
-const Navbar = () => {
-  const [active, setActive] = useState("/");
+const Navbar = ({ active, setActive }) => {
   const [toggle, setToggle] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState({});
   const [menuIconStatus, setMenuIconStatus] = useState(false);
@@ -143,7 +142,7 @@ const Navbar = () => {
 
   return (
     <div className=" w-full overflow-hidden">
-      <div className={`${styles.paddingX} ${styles.flexCenter} border-b-[1px]`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} `}>
         <div className={`${styles.boxWidth} `}>
           <div className="w-full  py-4  items-center  border-slate-200 flex">
             {/* Logo */}
@@ -153,7 +152,7 @@ const Navbar = () => {
                 onClick={() => {
                   setActive("Home");
                 }}>
-                <img src={logo} className="w-[60px] -my-3" />
+                <img src={logo} className="w-[60px] -my-3 " />
               </Link>
             </div>
 
@@ -163,9 +162,11 @@ const Navbar = () => {
                 menu={{
                   items: Jadwal,
                 }}
-                className={
-                  active === "Jadwal" ? "text-greenText font-semibold " : "text-black font-normal "
-                }>
+                className={`${
+                  active === "Jadwal" && active !== "Home"
+                    ? "text-greenText font-semibold "
+                    : "font-normal "
+                } `}>
                 <a
                   onClick={(e) => {
                     e.preventDefault();
@@ -257,7 +258,7 @@ const Navbar = () => {
                           <div
                             key={menu.id}
                             className={`flex flex-row items-center justify-center rounded-sm ${
-                              active === menu.id ? "text-greenText bg-neutral-100" : ""
+                              active === menu.id ? "text-greenText bg-neutral-100" : "text-black"
                             }`}>
                             <li className="py-2 ">
                               {/* Menu */}
