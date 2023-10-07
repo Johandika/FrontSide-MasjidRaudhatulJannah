@@ -21,8 +21,8 @@ const router = createBrowserRouter([
     element: (
       <>
         <Layout />
-        <ScrollToTop />{" "}
         {/* ScrollToTop agar setiap pindah halaman dimulai dari atas */}
+        <ScrollToTop />{" "}
       </>
     ),
     children: [
@@ -49,12 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/linkKajianRutin",
         element: <LinkKajian />,
-        children: [
-          {
-            path: ":id",
-            element: <LinkKajianDetail />,
-          },
-        ],
+      },
+      {
+        path: "/linkKajianRutin/:id",
+        element: <LinkKajianDetail />,
       },
       {
         path: "/linkKajianTablighAkbar",
@@ -79,7 +77,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 
 
 export default router;
