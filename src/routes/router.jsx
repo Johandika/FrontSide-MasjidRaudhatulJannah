@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
+import { createBrowserRouter} from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../components/layout/Layout";
 import Donasi from "../pages/Donasi";
@@ -8,11 +8,12 @@ import DiklatPraNikah from "../pages/DiklatPraNikah";
 import DiklatShalat from "../pages/DiklatShalat";
 import KelasBahasaArab from "../pages/KelasBahasaArab";
 import LinkKajian from "../pages/LinkKajian";
-import TahsinAnak from "../pages/TahsinAnak";
 import TahsinIkhwan from "../pages/TahsinIkhwan";
 import Kajian from "../pages/Kajian";
 import LinkTablighAkbar from "../pages/LinkTablighAkbar";
 import ScrollToTop from "../ScrollToTop";
+import LinkKajianDetail from "../pages/LinkKajianDetail";
+
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
     element: (
       <>
         <Layout />
-        <ScrollToTop /> {/* ScrollToTop agar setiap pindah halaman dimulai dari atas */}
+        <ScrollToTop />{" "}
+        {/* ScrollToTop agar setiap pindah halaman dimulai dari atas */}
       </>
     ),
     children: [
@@ -47,6 +49,12 @@ const router = createBrowserRouter([
       {
         path: "/linkKajianRutin",
         element: <LinkKajian />,
+        children: [
+          {
+            path: ":id",
+            element: <LinkKajianDetail />,
+          },
+        ],
       },
       {
         path: "/linkKajianTablighAkbar",
@@ -71,5 +79,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+
 
 export default router;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../style";
 
-const kajians = [
+export const kajians = [
   {
     id: 1,
     namaKajian: "Kajian Kitab Tauhid",
@@ -19,7 +19,7 @@ const kajians = [
   {
     id: 3,
     namaKajian: "Kajian Akhlak",
-    pemateri: "Ust. Ahmad Doni, Lc. ",
+    pemateri: "Ust. Ahmad Doni, Lc.",
     hari: "Rabu",
     pukul: "16.00 - 17.30",
   },
@@ -124,7 +124,7 @@ const kajians = [
   {
     id: 18,
     namaKajian: "Kajian Akhlak",
-    pemateri: "Ust. Ahmad Doni, Lc. ",
+    pemateri: "Ust. Ahmad Doni, Lc.",
     hari: "Sabtu",
     pukul: "16.00 - 17.30",
   },
@@ -145,7 +145,7 @@ const kajians = [
   {
     id: 21,
     namaKajian: "Kajian Akhlak",
-    pemateri: "Ust. Ahmad Doni, Lc. ",
+    pemateri: "Ust. Ahmad Doni, Lc.",
     hari: "Minggu",
     pukul: "16.00 - 17.30",
   },
@@ -164,7 +164,15 @@ const Kajian = () => {
     };
   }, []);
 
-  const daysOfWeek = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
+  const daysOfWeek = [
+    "Minggu",
+    "Senin",
+    "Selasa",
+    "Rabu",
+    "Kamis",
+    "Jumat",
+    "Sabtu",
+  ];
 
   const monthNames = [
     "Januari",
@@ -187,7 +195,9 @@ const Kajian = () => {
   const year = currentDate.getFullYear();
 
   return (
-    <div className={`${styles.paddingX} ${styles.flexCenter} pt-[60px] bg-Gray1`}>
+    <div
+      className={`${styles.paddingX} ${styles.flexCenter} pt-[60px] bg-Gray1`}
+    >
       <div className={`${styles.boxWidth}  my-20 flex flex-col gap-20`}>
         {/* Kajian Hari Ini */}
         <div className="flex flex-col gap-20 ">
@@ -195,9 +205,10 @@ const Kajian = () => {
           <div className="flex flex-col justify-center items-center text-center gap-9">
             <h1 className="text-judul ">Jadwal Kajian Rutin</h1>
             <p className="w-full sm:w-[90%] md:w-[70%]">
-              Kajian rutin adalah kajian yang dilaksanakan setiap pekan di Masjid Raudhatul Jannah
-              Pekanbaru secara intensif dan berkelanjutan. Biasanya membahas sebuah kitab dan
-              dihadiri oleh jama'ah yang tetap.
+              Kajian rutin adalah kajian yang dilaksanakan setiap pekan di
+              Masjid Raudhatul Jannah Pekanbaru secara intensif dan
+              berkelanjutan. Biasanya membahas sebuah kitab dan dihadiri oleh
+              jama'ah yang tetap.
             </p>
           </div>
           {/* Card Kajian Hari Ini */}
@@ -207,7 +218,9 @@ const Kajian = () => {
             </div>
             <div className="flex flex-col flex-1 bg-white shadow  rounded-md p-5 gap-4">
               <div className="text-center">
-                <div className="text-greenText font-bold text-2xl">Kajian Hari Ini</div>
+                <div className="text-greenText font-bold text-2xl">
+                  Kajian Hari Ini
+                </div>
                 <div className="text-xs  text-neutral-500">
                   ({day}, {date} {month} {year})
                 </div>
@@ -220,9 +233,15 @@ const Kajian = () => {
                     <div className="flex flex-row gap-6">
                       <div className="flex flex-col flex-1 gap-4">
                         <div>
-                          <div className="text-greenText font-bold">{kajian.namaKajian}</div>
-                          <div className="text-neutral-500 font-base">{kajian.pemateri}</div>
-                          <div className="text-neutral-500 font-bold">{kajian.pukul}</div>
+                          <div className="text-greenText font-bold">
+                            {kajian.namaKajian}
+                          </div>
+                          <div className="text-neutral-500 font-base">
+                            {kajian.pemateri}
+                          </div>
+                          <div className="text-neutral-500 font-bold">
+                            {kajian.pukul}
+                          </div>
                         </div>
                         {/* Tambahkan kondisi untuk merender <hr /> */}
                         {index !== array.length - 1 && <hr />}
@@ -237,7 +256,10 @@ const Kajian = () => {
         {/* Card Daftar Kajian Sepekan */}
         <div className="grid grid-cols-1 xs:w-4/5 sm:w-full sm:grid-cols-2 lg:grid-cols-3  gap-5 mx-auto ">
           {daysOfWeek.map((day) => (
-            <div key={day} className="flex flex-col flex-1 bg-white shadow rounded-md p-5 gap-4">
+            <div
+              key={day}
+              className="flex flex-col flex-1 bg-white shadow rounded-md p-5 gap-4"
+            >
               <div className="text-center">
                 <div className="text-greenText font-bold text-2xl">{day}</div>
               </div>
@@ -245,12 +267,21 @@ const Kajian = () => {
               {kajians
                 .filter((kajian) => kajian.hari === day)
                 .map((kajian) => (
-                  <div key={kajian.id} className="flex flex-row gap-6">
+                  <div
+                    key={kajian.id}
+                    className="flex flex-row gap-6"
+                  >
                     <div className="flex flex-col flex-1 gap-4">
                       <div>
-                        <div className="text-greenText font-bold">{kajian.namaKajian}</div>
-                        <div className="text-neutral-600 font-base">{kajian.pemateri}</div>
-                        <div className="text-neutral-600 text-sm font-semibold">{kajian.pukul}</div>
+                        <div className="text-greenText font-bold">
+                          {kajian.namaKajian}
+                        </div>
+                        <div className="text-neutral-600 font-base">
+                          {kajian.pemateri}
+                        </div>
+                        <div className="text-neutral-600 text-sm font-semibold">
+                          {kajian.pukul}
+                        </div>
                       </div>
                     </div>
                   </div>

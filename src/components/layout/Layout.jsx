@@ -7,7 +7,7 @@ import styles from "../../style";
 const Layout = () => {
   return (
     <div className="w-full ">
-      <div className="w-full fixed  z-50 ">
+      <div className="w-full fixed z-50 ">
         <NavbarHome>
           <Navbar />
         </NavbarHome>
@@ -19,7 +19,9 @@ const Layout = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}  bg-greenBackground`}>
+      <div
+        className={`${styles.paddingX} ${styles.flexCenter}  bg-greenBackground`}
+      >
         <div className={`${styles.boxWidth}  `}>
           <Footer />
         </div>

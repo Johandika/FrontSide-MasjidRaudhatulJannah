@@ -1,49 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const NavbarHome = ({ children }) => {
-  const [navbarBg, setNavbarBg] = useState("bg-transparent");
-  const [navbarText, setNavbarText] = useState("text-black");
+  const [navbarBg, setNavbarBg] = useState("bg-transparent text-white");
   const [active, setActive] = useState("Home");
-
-  console.log("active1");
-  console.log(active);
 
   const dataUntukChildren = {
     active,
     setActive,
   };
 
-  useEffect(() => {
-    if (active === "Home" && window.scrollY === 0) {
-      // Jika active adalah "Home", ubah warna teks menjadi merah
-      setNavbarText("text-red-500");
+  const handleScroll = useCallback(() => {
+    if (window.scrollY === 0 && active === "Home") {
+      setNavbarBg("bg-transparent text-white ");
     } else {
-      // Jika active bukan "Home", ubah warna teks menjadi hitam
-      setNavbarText("text-black");
+      setNavbarBg("bg-white border-b-[1px] text-black");
     }
+  }, [active]);
 
-    // Tambahkan event listener untuk mendeteksi scroll
+  useEffect(() => {
+    // handleScroll jalan saat scroll
     window.addEventListener("scroll", handleScroll);
 
     // Hapus event listener saat komponen di-unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [active]);
-
-  const handleScroll = () => {
-    // Periksa active di sini
-    console.log("active3");
-    console.log(active);
-    if (window.scrollY === 0 && active === "Home") {
-      setNavbarBg("bg-transparent ");
-    } else {
-      setNavbarBg("bg-white border-b-[1px] ");
-    }
-  };
+  }, [active, handleScroll]);
 
   return (
-    <header className={`transition duration-200 ${navbarBg} ${navbarText}`}>
+    <header
+      className={`transition duration-200 ${
+        active === "Home" ? navbarBg : "text-black bg-white border-b-[1px]"
+      } `}
+    >
       {React.cloneElement(children, { ...dataUntukChildren })}
     </header>
   );

@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { logo } from "../../assets/icons";
 import { IoClose } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
-import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowUp,
+} from "react-icons/md";
 
 import { Dropdown } from "antd";
 import styles from "../../style";
@@ -151,8 +154,12 @@ const Navbar = ({ active, setActive }) => {
                 to={"/"}
                 onClick={() => {
                   setActive("Home");
-                }}>
-                <img src={logo} className="w-[60px] -my-3 " />
+                }}
+              >
+                <img
+                  src={logo}
+                  className="w-[60px] -my-3 "
+                />
               </Link>
             </div>
 
@@ -166,13 +173,15 @@ const Navbar = ({ active, setActive }) => {
                   active === "Jadwal" && active !== "Home"
                     ? "text-greenText font-semibold "
                     : "font-normal "
-                } `}>
+                } `}
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("Jadwal");
                   }}
-                  className="flex gap-1">
+                  className="flex gap-1"
+                >
                   <p>Jadwal</p>
                   <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
@@ -184,14 +193,18 @@ const Navbar = ({ active, setActive }) => {
                   items: Diklat,
                 }}
                 className={
-                  active === "Diklat" ? "text-greenText font-bold" : "text-black font-normal"
-                }>
+                  active === "Diklat"
+                    ? "text-greenText font-bold"
+                    : " font-normal"
+                }
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("Diklat");
                   }}
-                  className="flex gap-1">
+                  className="flex gap-1"
+                >
                   <p>Diklat</p>
                   <MdOutlineKeyboardArrowDown className="h-auto" />
                 </a>
@@ -201,9 +214,12 @@ const Navbar = ({ active, setActive }) => {
               <Link
                 to={"/kegiatan"}
                 className={
-                  active === "Kegiatan" ? "text-greenText font-bold" : "text-black font-normal"
+                  active === "Kegiatan"
+                    ? "text-greenText font-bold"
+                    : " font-normal"
                 }
-                onClick={() => setActive("Kegiatan")}>
+                onClick={() => setActive("Kegiatan")}
+              >
                 Kegiatan
               </Link>
 
@@ -211,9 +227,12 @@ const Navbar = ({ active, setActive }) => {
               <Link
                 to={"/donasi"}
                 className={
-                  active === "Donasi" ? "text-greenText font-bold" : "text-black font-normal"
+                  active === "Donasi"
+                    ? "text-greenText font-bold"
+                    : " font-normal"
                 }
-                onClick={() => setActive("Donasi")}>
+                onClick={() => setActive("Donasi")}
+              >
                 Donasi
               </Link>
 
@@ -223,14 +242,18 @@ const Navbar = ({ active, setActive }) => {
                   items: LinkKajian,
                 }}
                 className={
-                  active === "LinkKajian" ? "text-greenText font-bold " : "text-black font-normal "
-                }>
+                  active === "LinkKajian"
+                    ? "text-greenText font-bold "
+                    : " font-normal "
+                }
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault();
                     setActive("LinkKajian");
                   }}
-                  className="flex gap-1">
+                  className="flex gap-1"
+                >
                   <p>Link Kajian</p>
 
                   <MdOutlineKeyboardArrowDown className="h-auto" />
@@ -258,8 +281,11 @@ const Navbar = ({ active, setActive }) => {
                           <div
                             key={menu.id}
                             className={`flex flex-row items-center justify-center rounded-sm ${
-                              active === menu.id ? "text-greenText bg-neutral-100" : "text-black"
-                            }`}>
+                              active === menu.id
+                                ? "text-greenText bg-neutral-100"
+                                : "text-black"
+                            }`}
+                          >
                             <li className="py-2 ">
                               {/* Menu */}
                               {/* Cek apa dia punya submenu, jika iya maka menu utamanya tidak akan mmenjadi link melainkan div yang membuka submenu tapi jika tidak maka dia akan link langsung */}
@@ -269,9 +295,11 @@ const Navbar = ({ active, setActive }) => {
                                   onClick={() => {
                                     toggleSubMenu(menu.id);
                                     setActive(menu.id);
-                                  }}>
+                                  }}
+                                >
                                   <div
-                                    className={`flex items-center justify-center font-semibold `}>
+                                    className={`flex items-center justify-center font-semibold `}
+                                  >
                                     {menu.title}
                                     {menu.submenu &&
                                       (subMenuOpen[menu.id] ? (
@@ -287,9 +315,11 @@ const Navbar = ({ active, setActive }) => {
                                   onClick={() => {
                                     toggleSubMenu(menu.id);
                                     setActive(menu.id);
-                                  }}>
+                                  }}
+                                >
                                   <div
-                                    className={`flex items-center justify-center font-semibold `}>
+                                    className={`flex items-center justify-center font-semibold `}
+                                  >
                                     {menu.title}
                                     {menu.submenu &&
                                       (subMenuOpen[menu.id] ? (
@@ -306,17 +336,23 @@ const Navbar = ({ active, setActive }) => {
                                 <ul className="text-left  p-2">
                                   {menu.submenu.map((submenu, index) => (
                                     <>
-                                      <li key={submenu.key} className="py-1">
+                                      <li
+                                        key={submenu.key}
+                                        className="py-1"
+                                      >
                                         <Link
                                           to={submenu.link}
                                           onClick={() => {
                                             setToggle(!toggle);
                                             toggleSubMenu(menu.id);
-                                          }}>
+                                          }}
+                                        >
                                           - {submenu.title}
                                         </Link>
                                       </li>
-                                      {index !== menu.submenu.length - 1 && <hr />}
+                                      {index !== menu.submenu.length - 1 && (
+                                        <hr />
+                                      )}
                                     </>
                                   ))}
                                 </ul>
