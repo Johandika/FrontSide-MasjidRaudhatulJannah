@@ -24,26 +24,16 @@ function Card({ title, logo, number, index, about }) {
           {index + 1}. {title}
         </div>
         <div className="flex items-center w-[380px] gap-4 sm:gap-0 ">
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-10 sm:h-12 "
-          />
+          <img src={logo} alt="Logo" className="h-10 sm:h-12 " />
           <p className="ml-0 sm:ml-5 text-xl sm:text-xl  text-gray-500">
             {number}
           </p>
         </div>
         {/* Web Icon Layout */}
         {active ? (
-          <FiChevronUp
-            size={24}
-            className="hidden sm:flex ml-auto"
-          />
+          <FiChevronUp size={24} className="hidden sm:flex ml-auto" />
         ) : (
-          <FiChevronDown
-            size={24}
-            className="hidden sm:flex ml-auto"
-          />
+          <FiChevronDown size={24} className="hidden sm:flex ml-auto" />
         )}
         {/* Mobile Icon Layout */}
         {active ? (
@@ -70,9 +60,8 @@ const Donasi = () => {
     try {
       const res = await getData("/rekening");
       const datas = res.data.data;
-      setRekeningData(datas); // Setel state rekeningData dengan data dari server
+      setRekeningData(datas);
     } catch (error) {
-      // Handle error jika ada
       console.error("Error fetching data:", error);
     }
   };
