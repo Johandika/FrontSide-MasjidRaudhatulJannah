@@ -1,15 +1,15 @@
 import { kegiatan } from "../../../assets/images";
 
-const KegiatanList = ({ division, divisions }) => {
+const KegiatanList = ({ division, dataKegiatan }) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-black">
-      {divisions.map((divisi) => (
+      {dataKegiatan.map((kegiatan) => (
         <div
-          key={divisi.id}
+          key={kegiatan.id}
           className="bg-white shadow-md rounded-md overflow-hidden "
         >
           <img
-            src={kegiatan}
+            src={kegiatan.gambar_kegiatan}
             alt=""
             className="w-full h-[150px] object-cover"
           />

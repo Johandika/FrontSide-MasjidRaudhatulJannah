@@ -43,7 +43,6 @@ const NavbarHome = ({ children }) => {
     setActive,
   };
 
-  console.log(active);
   return (
     <header className={`transition duration-200 ${navbarBg} `}>
       {React.cloneElement(children, { ...dataUntukChildren })}
