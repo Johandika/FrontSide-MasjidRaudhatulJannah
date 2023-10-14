@@ -1,8 +1,16 @@
-import { format, parseISO } from "date-fns";
+import moment from "moment";
 
-export function formatTanggal(waktu) {
-  const tanggal = parseISO(waktu); // Parsing tanggal dari string ISO
-  const formatTgl = format(tanggal, "dd.MM.yyyy"); // Format tanggal dalam bahasa Indonesia
+const formatTanggal = (waktu) => {
+  const tanggal = moment(waktu);
+  const formatTgl = tanggal.format("DD MMM YYYY");
+
+  moment.locale("id", {
+    monthsShort: "Jan_Feb_Mar_Apr_Mei_Jun_Jul_Agst_Sept_Okt_Nov".split("_"),
+    monthsParseExact: true,
+  });
+  moment.locale("id");
 
   return formatTgl;
-}
+};
+
+export default formatTanggal;

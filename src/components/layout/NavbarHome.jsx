@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 const NavbarHome = ({ children }) => {
-  const initialActive = localStorage.getItem("active") || "Home";
+  const initialActive = sessionStorage.getItem("active") || "Home";
 
   const [active, setActive] = useState(initialActive);
   const [navbarBg, setNavbarBg] = useState(
@@ -29,7 +29,7 @@ const NavbarHome = ({ children }) => {
 
   // Set local storage sesuai state active
   useEffect(() => {
-    localStorage.setItem("active", active);
+    sessionStorage.setItem("active", active);
 
     if (active === "Home") {
       setNavbarBg("bg-transparent text-white ");
