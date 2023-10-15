@@ -26,7 +26,7 @@ const KegiatanList = ({
               .map((kegiatan, index) => (
                 <div
                   key={index}
-                  className="bg-white shadow-md rounded-md overflow-hidden cursor-pointer group transition hover:shadow-neutral-300"
+                  className="bg-white shadow-md rounded-md overflow-hidden cursor-pointer group transition hover:shadow-neutral-300 flex justify-between flex-col"
                 >
                   <div className="overflow-hidden bg-black">
                     <img
@@ -37,18 +37,16 @@ const KegiatanList = ({
                       className="w-full h-[150px] object-cover group-hover:scale-105 transition group-hover:duration-700 "
                     />
                   </div>
-                  <div className="p-3 group-hover:text-greenText">
+                  <div className="px-3 pt-3 group-hover:text-greenText">
                     <h1 className="text-lg font-bold  mb-2 ">
                       {kegiatan.tema}
                     </h1>
-                    <div className="flex flex-row  justify-between text-xs">
-                      <div className=" pl-2 border-l-2 border-red-500 uppercase">
-                        {namaDivisi2(kegiatan.DivisiId).nama}
-                      </div>
-                      <div className="">
-                        {formatTanggal(kegiatan.createdAt)}
-                      </div>
+                  </div>
+                  <div className="flex flex-row  justify-between text-xs mt-auto px-3 pb-3 group-hover:text-greenText">
+                    <div className=" pl-2 border-l-2 border-red-500 uppercase">
+                      {namaDivisi2(kegiatan.DivisiId).nama}
                     </div>
+                    <div className="">{formatTanggal(kegiatan.createdAt)}</div>
                   </div>
                 </div>
               ))
@@ -58,7 +56,7 @@ const KegiatanList = ({
               .map((kegiatan, index) => (
                 <div
                   key={index}
-                  className="bg-white shadow-md rounded-md overflow-hidden cursor-pointer group transition hover:shadow-neutral-300"
+                  className="bg-white shadow-md rounded-md overflow-hidden cursor-pointer group transition hover:shadow-neutral-300 flex justify-between flex-col"
                 >
                   <div className="overflow-hidden bg-black">
                     <img
@@ -69,18 +67,16 @@ const KegiatanList = ({
                       className="w-full h-[150px] object-cover group-hover:scale-105 transition group-hover:duration-700 "
                     />
                   </div>
-                  <div className="p-3 group-hover:text-greenText">
+                  <div className="px-3 pt-3 group-hover:text-greenText">
                     <h1 className="text-lg font-bold  mb-2 ">
                       {kegiatan.tema}
                     </h1>
-                    <div className="flex flex-row  justify-between text-xs">
-                      <div className=" pl-2 border-l-2 border-red-500 uppercase">
-                        {active}
-                      </div>
-                      <div className="">
-                        {formatTanggal(kegiatan.createdAt)}
-                      </div>
+                  </div>
+                  <div className="flex flex-row  justify-between text-xs mt-auto px-3 pb-3 group-hover:text-greenText">
+                    <div className=" pl-2 border-l-2 border-red-500 uppercase">
+                      {active}
                     </div>
+                    <div> {formatTanggal(kegiatan.createdAt)}</div>
                   </div>
                 </div>
               ))}
