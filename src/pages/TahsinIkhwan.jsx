@@ -142,7 +142,14 @@ const tahsins = [
           {
             namaKelas: "2A",
             pemateri: "Ust. Yuslan",
-            peserta: ["Nonononoo", "Naufal", "Hanif", "Abdul", "Muna", "Mubarak"],
+            peserta: [
+              "Nonononoo",
+              "Naufal",
+              "Hanif",
+              "Abdul",
+              "Muna",
+              "Mubarak",
+            ],
           },
           {
             namaKelas: "2B",
@@ -153,7 +160,14 @@ const tahsins = [
           {
             namaKelas: "3A",
             pemateri: "Ust. Anum",
-            peserta: ["Nonononoo", "Naufal", "Hanif", "Abdul", "Muna", "Mubarak"],
+            peserta: [
+              "Nonononoo",
+              "Naufal",
+              "Hanif",
+              "Abdul",
+              "Muna",
+              "Mubarak",
+            ],
           },
         ],
       },
@@ -208,13 +222,18 @@ const TahsinCard = ({ kelas }) => {
   return (
     <div className="flex flex-1 justify-start flex-col  bg-white shadow rounded-md p-5 gap-4">
       <div className="text-center">
-        <div className="text-greenText font-bold text-2xl">{kelas.namaKelas}</div>
+        <div className="text-greenText font-bold text-2xl">
+          {kelas.namaKelas}
+        </div>
       </div>
       <hr />
       <div className="text-greenBackground font-bold">{kelas.pemateri}</div>
       <ul>
         {kelas.peserta.map((peserta, index) => (
-          <li key={peserta} className="text-neutral-600">
+          <li
+            key={peserta}
+            className="text-neutral-600"
+          >
             {index + 1}. {peserta}
           </li>
         ))}
@@ -236,15 +255,17 @@ const FilteredTahsinCards = () => {
         <div className="flex flex-col justify-center items-center text-center gap-9">
           <h1 className="text-judul ">{kategori}</h1>
           <p className="w-full sm:w-[90%] md:w-[70%]">
-            Tahsin adalah kegiatan yang diadakan sebagai salah satu program unggulan di Masjid RJIC
-            Pekanbaru. Tahsin tersedia untuk ikhwan ataupun akhawat dan tersedia juga opsi hari yang
-            bervariasi.
+            Tahsin adalah kegiatan yang diadakan sebagai salah satu program
+            unggulan di Masjid RJIC Pekanbaru. Tahsin tersedia untuk ikhwan
+            ataupun akhawat dan tersedia juga opsi hari yang bervariasi.
           </p>
         </div>
         <div className="flex flex-col gap-8">
           <div className="flex flex-row  gap-5">
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold text-black">Pilih Kategori:</label>
+              <label className="text-xs font-bold text-black">
+                Pilih Kategori:
+              </label>
               {/* Badge Kategori Tahsin */}
               <div className="flex flex-wrap flex-row gap-2">
                 {tahsins.map((tahsin) => (
@@ -257,14 +278,17 @@ const FilteredTahsinCards = () => {
                     key={tahsin.kategori}
                     onClick={() => {
                       setKategori(tahsin.kategori);
-                    }}>
+                    }}
+                  >
                     {tahsin.kategori}
                   </option>
                 ))}
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold text-black">Pilih Hari:</label>
+              <label className="text-xs font-bold text-black">
+                Pilih Hari:
+              </label>
               {/* Badge Hari*/}
               <div className="flex flex-wrap flex-row gap-2">
                 {tahsins
@@ -280,7 +304,8 @@ const FilteredTahsinCards = () => {
                         key={h.namaHari}
                         onClick={() => {
                           setHari(h.namaHari);
-                        }}>
+                        }}
+                      >
                         {h.namaHari}
                       </option>
                     ))
@@ -296,7 +321,10 @@ const FilteredTahsinCards = () => {
                   <div key={h.namaHari}>
                     <div className="grid grid-cols-1  xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-start">
                       {h.kelas.map((kelas) => (
-                        <TahsinCard key={kelas.namaKelas} kelas={kelas} />
+                        <TahsinCard
+                          key={kelas.namaKelas}
+                          kelas={kelas}
+                        />
                       ))}
                     </div>
                   </div>
@@ -313,7 +341,9 @@ const FilteredTahsinCards = () => {
 // Komponen Utama
 function TahsinIkhwan() {
   return (
-    <div className={`${styles.paddingX} ${styles.flexCenter} pt-[60px] bg-Gray1`}>
+    <div
+      className={`${styles.paddingX} ${styles.flexCenter} pt-[60px] bg-Gray1`}
+    >
       <div className={`${styles.boxWidth}  my-20 flex flex-col gap-20`}>
         <div className="flex flex-col gap-4">
           <FilteredTahsinCards />
