@@ -165,14 +165,14 @@ const LinkTablighAkbar = () => {
                     </React.Fragment>
                   ))}
           </div>
-        </div>
-        <div className="mx-auto mt-14">
-          <Button
-            label={"Lihat lebih banyak"}
-            iconRight={HiOutlineChevronDoubleRight}
-            className={"px-8"}
-            onClick={loadMoreData}
-          />
+          <div className="mx-auto mt-14">
+            <Button
+              label={"Lihat lebih banyak"}
+              iconRight={HiOutlineChevronDoubleRight}
+              className={"px-8"}
+              onClick={loadMoreData}
+            />
+          </div>
         </div>
       </div>
     </div>
