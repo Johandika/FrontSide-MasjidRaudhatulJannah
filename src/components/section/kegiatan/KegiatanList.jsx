@@ -18,7 +18,7 @@ const KegiatanList = ({
       <div className="border-l-2 border-red-500 uppercase pl-3 font-bold text-black mt-4">
         {active}
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-black">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 text-black">
         {active === "Semua"
           ? allKegiatansDivisis
               .slice(5)

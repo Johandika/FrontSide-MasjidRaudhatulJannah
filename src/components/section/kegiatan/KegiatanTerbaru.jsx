@@ -75,7 +75,7 @@ const KegiatanTerbaru = ({
       </div>
 
       <div className="basis-full lg:basis-1/2 flex ">
-        <div className="w-full h-full grid grid-cols-2 gap-4">
+        <div className="w-full h-full grid grid-cols-1 xs:grid-cols-2 gap-4">
           {/* Looping Card  */}
           {active === "Semua"
             ? allKegiatansDivisis.slice(1, 5).map((kegiatan) => (

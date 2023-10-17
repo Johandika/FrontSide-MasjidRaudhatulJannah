@@ -47,6 +47,8 @@ const LinkKajian = () => {
       }
       return false;
     });
+  // console.log("options", ...options);
+  console.log("idSet", idSet);
 
   return (
     <div className={`${styles.paddingX} ${styles.flexCenter} pt-[60px]`}>
