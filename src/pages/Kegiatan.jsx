@@ -150,10 +150,21 @@ const Kegiatan = () => {
                 .length > 0 ? (
                 <div className="mx-auto mt-14">
                   <Button
-                    label={"Lihat lebih banyak"}
+                    label={
+                      allKegiatansDivisis?.length <= itemsPerPage
+                        ? "Sudah semua data di load"
+                        : "Lihat lebih banyak"
+                    }
                     iconRight={HiChevronDoubleRight}
-                    className={"px-8"}
+                    className={`px-8 ${
+                      allKegiatansDivisis?.length <= itemsPerPage
+                        ? "bg-slate-400 border-slate-400"
+                        : ""
+                    }`}
                     onClick={loadMoreData}
+                    disabled={
+                      allKegiatansDivisis?.length <= itemsPerPage ? true : false
+                    }
                   />
                 </div>
               ) : (
@@ -164,19 +175,32 @@ const Kegiatan = () => {
             ) : kegiatansActivePerKategoriSlice &&
               kegiatansActivePerKategoriSlice.slice(
                 0,
-                kegiatansActivePerKategoriSlice.length - 5
+                kegiatansActivePerKategoriSlice.length
               ).length > 0 ? (
               <div className="mx-auto mt-14">
                 <Button
-                  label={"Lihat lebih banyak"}
+                  label={
+                    kegiatansActivePerKategoriSlice.length <= itemsPerPage
+                      ? "Sudah semua data di load"
+                      : "Lihat lebih banyak"
+                  }
                   iconRight={HiChevronDoubleRight}
-                  className={"px-8"}
+                  className={`px-8 ${
+                    kegiatansActivePerKategoriSlice.length <= itemsPerPage
+                      ? "bg-slate-400 border-slate-400"
+                      : ""
+                  }`}
                   onClick={loadMoreData}
+                  disabled={
+                    kegiatansActivePerKategoriSlice.length <= itemsPerPage
+                      ? true
+                      : false
+                  }
                 />
               </div>
             ) : (
               <div className="flex w-full h-64 bg-neutral-200 justify-center items-center text-4xl font-bold text-neutral-400 rounded-md">
-                Tidak ada data
+                Tidak ada datas
               </div>
             )}
           </div>

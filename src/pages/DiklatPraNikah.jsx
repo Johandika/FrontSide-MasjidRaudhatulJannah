@@ -2,28 +2,52 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { PiDownloadSimpleBold } from "react-icons/pi";
 import Button from "../components/Button";
 import styles from "../style";
-import { kegiatan } from "../assets/images";
 import SwiperModuleHome from "../components/swiper/SwiperHome";
+import { getData } from "../utils/fetch";
+import { useEffect, useState } from "react";
+import formatPathGambar from "../utils/formatGambar";
+import { config } from "../configs";
+import { formatTanggalBulanText } from "../utils/dateFormat";
 
-const diklats = [
-  {
-    id: 1,
-    nama: "Diklat Pra Nikah",
-    tanggal: "22 Oktober 2023",
-    jam: "08.00 - Selesai",
-    poster: kegiatan,
-    kontak: "082378907857",
-    fasilitas: "Sertifikat, Materi Diklat, Praktek, Alat Tulis, Ruangan AC",
-    formatPendaftaran:
-      "#Nama, #Jenis kelamin, #Domisili ,#Diklat yang ingin diikuti,#Tanggal diklat",
-    lokasi:
-      "Lt. 3 Gedung Diklat, Masjid Raudhatul Jannah Islamic Center, Jl. Tuanku Tambusai,Pekanbaru",
-    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero sint repudiandae tenetur excepturi accusamus? Ab aliquam esse sint harum beatae ex animi maiores. Recusandae quia repellendus itaque dolorem corporis fugit sequi laboriosam eaque, alias magni ducimus sint est. Culpa, atque.",
-    kuota: 25,
-  },
-];
+const DiklatShalatJenazah = () => {
+  const [diklatJenazah, setDiklatJenazah] = useState([]);
 
-const DiklatPraNikah = () => {
+  const fetchDiklat = async () => {
+    try {
+      const res = await getData("/diklat");
+      const datas = res.data.data;
+      const datasJenazah = datas.filter(
+        (data) => data.tema === "DIKLATPRANIKAH"
+      );
+      setDiklatJenazah(datasJenazah);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDiklat();
+  }, []);
+
+  const downloadFileAtUrl = (url) => {
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const blobURL = window.URL.createObjectURL(new Blob([blob]));
+        const fileName = url.split("/").pop();
+        const aTag = document.createElement("a");
+        aTag.href = blobURL;
+        aTag.setAttribute("download", fileName);
+        document.body.appendChild(aTag);
+        aTag.click();
+        aTag.remove();
+      });
+  };
+
+  function formatHargaId(harga) {
+    return harga.toLocaleString("id-ID");
+  }
+
   return (
     <>
       {/* Swiper */}
@@ -45,8 +69,8 @@ const DiklatPraNikah = () => {
             </p>
           </div>
           {/* Card Diklat */}
-          <div className="flex   pb-3  gap-8 justify-start ">
-            {diklats.map((diklat) => (
+          <div className="flex flex-col  pb-3  gap-8 justify-start ">
+            {diklatJenazah.map((diklat) => (
               <div
                 className=" bg-white shadow-2xl shadow-slate-300
                   rounded-lg w-full xs:w-10/12 sm:w-5/6  mx-auto relative"
@@ -57,9 +81,11 @@ const DiklatPraNikah = () => {
                 </div>
                 <div className="p-3 flex flex-col lg:flex-row gap-8 ">
                   {/* Left Side */}
-                  <div>
+                  <div className="flex flex-col justify-between">
                     <img
-                      src={diklat.poster}
+                      src={`${config.api_image}/${formatPathGambar(
+                        diklat.poster_diklat
+                      )}`}
                       alt="Profile"
                       className=" object-cover  rounded-lg h-[300px] sm:min-w-[300px] w-full mb-3"
                     />
@@ -67,13 +93,25 @@ const DiklatPraNikah = () => {
                       label={"Download Poster"}
                       outline
                       icon={PiDownloadSimpleBold}
+                      onClick={() => {
+                        downloadFileAtUrl(
+                          `${config.api_image}/${formatPathGambar(
+                            diklat.poster_diklat
+                          )}`
+                        );
+                      }}
                     />
+                    {console.log(
+                      `${config.api_image}/${formatPathGambar(
+                        diklat.poster_diklat
+                      )}`
+                    )}
                   </div>
                   {/* Right Side */}
                   <div className="flex flex-col justify-between gap-3">
                     {/* Hari/Tanggal */}
                     <h1 className="text-3xl font-bold text-greenText ">
-                      Rabu, 22 Oktober 2023
+                      {formatTanggalBulanText(diklat.waktu)}
                     </h1>
                     <div className="mt-5 flex-col flex gap-2">
                       <div className=" flex flex-col gap-2">
@@ -82,10 +120,15 @@ const DiklatPraNikah = () => {
                           <p className=" text-base min-w-fit font-bold text-greenText">
                             Lokasi :&nbsp;
                           </p>
-                          <p className=" text-base ">
-                            Lt. 3 Gedung Diklat, Masjid Raudhatul Jannah Islamic
-                            Center, Jl. Tuanku Tambusai,Pekanbaru
+                          <p className=" text-base ">{diklat.lokasi}</p>
+                        </div>
+                        <hr />
+                        {/* Pemateri */}
+                        <div className="flex">
+                          <p className=" text-base min-w-fit font-bold text-greenText">
+                            Pemateri :&nbsp;
                           </p>
+                          <p className=" text-base ">{diklat.pemateri}</p>
                         </div>
                         <hr />
                         {/* Fasilitas */}
@@ -93,35 +136,30 @@ const DiklatPraNikah = () => {
                           <p className=" text-base min-w-fit font-bold text-greenText">
                             Fasilitas :&nbsp;
                           </p>
-                          <p className=" text-base ">
-                            Sertifikat, Materi Diklat, Praktek, Alat Tulis,
-                            Ruangan AC
-                          </p>
+                          <p className=" text-base ">{diklat.fasilitas}</p>
                         </div>
                         <hr />
-
                         {/* Kuota */}
                         <div className="flex">
                           <p className=" text-base min-w-fit font-bold text-greenText">
                             Kuota :&nbsp;
                           </p>
-                          <p className=" text-base ">25 peserta</p>
+                          <p className=" text-base ">{diklat.kuota} peserta</p>
                         </div>
                         <hr />
-
                         {/* Biaya */}
                         <div className="flex">
                           <p className=" text-base min-w-fit font-bold text-greenText">
                             Biaya Pendaftaran :&nbsp;
                           </p>
-                          <p className=" text-base ">Rp 100.000</p>
+                          <p className=" text-base ">
+                            Rp {formatHargaId(diklat.biaya)}
+                          </p>
                         </div>
-
                         <hr />
                       </div>
                     </div>
                     <div className="flex flex-col gap-2 mt-5">
-                      <p>Daftar sekarang, kuota terbatas :</p>
                       <Button
                         icon={HiOutlinePencilSquare}
                         label={"Daftar Sekarang"}
@@ -138,4 +176,4 @@ const DiklatPraNikah = () => {
   );
 };
 
-export default DiklatPraNikah;
+export default DiklatShalatJenazah;
