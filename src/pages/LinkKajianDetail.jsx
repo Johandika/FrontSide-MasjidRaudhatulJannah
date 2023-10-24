@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "../style";
-import { kajians } from "./Kajian";
+// import { kajians } from "./Kajian";
 import { getData } from "../utils/fetch";
 import { useEffect, useState } from "react";
 import { formatTanggalFullAngka } from "../utils/dateFormat";
