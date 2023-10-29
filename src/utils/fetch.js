@@ -7,7 +7,7 @@ export async function getData(url, params) {
     url: `${config.api_host_dev}${url}`,
     method: "GET",
     headers: {
-      api_key: config.api_key,
+      apiKey: config.api_key,
     },
   });
   return res;
