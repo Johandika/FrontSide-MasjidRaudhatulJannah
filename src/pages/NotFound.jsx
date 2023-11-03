@@ -3,9 +3,7 @@ import styles from "../style";
 
 const NotFound = () => {
   return (
-    <div
-      className={`${styles.paddingX} ${styles.flexCenter} bg-Gray1 pt-[30px]`}
-    >
+    <div className={`${styles.paddingX} ${styles.flexCenter}  pt-[30px]`}>
       <div
         className={`${styles.boxWidth}  my-20 flex flex-col gap-7 justify-center items-center`}
       >
