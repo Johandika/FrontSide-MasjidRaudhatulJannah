@@ -1,6 +1,6 @@
 import { pohonpahala } from "../../../assets/images";
 import styles from "../../../style";
-import SwiperModuleHome from "../../swiper/SwiperHome";
+import SwiperHome from "../../swiper/SwiperHome";
 
 const HighlighSection = () => {
   return (
@@ -9,7 +9,7 @@ const HighlighSection = () => {
     >
       <div className={`${styles.boxWidth}  mt-40 mb-48 flex flex-col gap-20 `}>
         <h1 className="text-judul ">Highlight Kegiatan</h1>
-        <SwiperModuleHome />
+        <SwiperHome />
       </div>
     </div>
   );

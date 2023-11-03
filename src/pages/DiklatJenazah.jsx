@@ -2,7 +2,7 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { PiDownloadSimpleBold } from "react-icons/pi";
 import Button from "../components/Button";
 import styles from "../style";
-import SwiperModuleHome from "../components/swiper/SwiperHome";
+import SwiperDiklatJenazah from "../components/swiper/SwiperDiklatJenazah";
 import { getData } from "../utils/fetch";
 import { useEffect, useState } from "react";
 import formatPathGambar from "../utils/formatGambar";
@@ -52,7 +52,7 @@ const DiklatShalatJenazah = () => {
     <>
       {/* Swiper */}
       <div className="pt-[60px]">
-        <SwiperModuleHome />
+        <SwiperDiklatJenazah />
       </div>
       {/* Padding & Margin style */}
       <div

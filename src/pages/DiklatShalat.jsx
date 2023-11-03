@@ -2,22 +2,22 @@ import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { PiDownloadSimpleBold } from "react-icons/pi";
 import Button from "../components/Button";
 import styles from "../style";
-import SwiperModuleHome from "../components/swiper/SwiperHome";
+import SwiperDiklatWudhuSholat from "../components/swiper/SwiperDiklatWudhuSholat";
 import { getData } from "../utils/fetch";
 import { useEffect, useState } from "react";
 import formatPathGambar from "../utils/formatGambar";
 import { config } from "../configs";
 import { formatTanggalBulanText } from "../utils/dateFormat";
 
-const DiklatShalatJenazah = () => {
-  const [diklatJenazah, setDiklatJenazah] = useState([]);
+const DiklatShalat = () => {
+  const [diklatShalat, setDiklatShalat] = useState([]);
 
   const fetchDiklat = async () => {
     try {
       const res = await getData("/diklat");
       const datas = res.data.data;
-      const datasJenazah = datas.filter((data) => data.tema === "DIKLATSHOLAT");
-      setDiklatJenazah(datasJenazah);
+      const datasShalat = datas.filter((data) => data.tema === "DIKLATSHOLAT");
+      setDiklatShalat(datasShalat);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -50,7 +50,7 @@ const DiklatShalatJenazah = () => {
     <>
       {/* Swiper */}
       <div className="pt-[60px]">
-        <SwiperModuleHome />
+        <SwiperDiklatWudhuSholat />
       </div>
       {/* Padding & Margin style */}
       <div
@@ -68,7 +68,7 @@ const DiklatShalatJenazah = () => {
           </div>
           {/* Card Diklat */}
           <div className="flex flex-col  pb-3  gap-8 justify-start ">
-            {diklatJenazah.map((diklat) => (
+            {diklatShalat.map((diklat) => (
               <div
                 className=" bg-white shadow-2xl shadow-slate-300
                   rounded-lg w-full xs:w-10/12 sm:w-5/6  mx-auto relative"
@@ -174,4 +174,4 @@ const DiklatShalatJenazah = () => {
   );
 };
 
-export default DiklatShalatJenazah;
+export default DiklatShalat;

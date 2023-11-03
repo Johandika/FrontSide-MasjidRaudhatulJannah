@@ -43,7 +43,7 @@ const swiperData = [
   },
 ];
 
-export default function SwiperHome() {
+export default function SwiperDiklatWudhuSholat() {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {

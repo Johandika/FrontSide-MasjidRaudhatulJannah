@@ -22,7 +22,7 @@ const TahsinCard = ({ tahsin, kategori }) => {
       </div>
       <hr />
       <div className="text-greenBackground font-bold">
-        Ust. {tahsin.PengajarTahsin.nama}
+        Ust. {tahsin.PengajarTahsin?.nama}
       </div>
       <ul>
         {kategori === "Tahsin Dewasa"

@@ -229,7 +229,7 @@ const Kajian = () => {
           </div>
           {/* Card Kajian Hari Ini */}
           <div className="flex flex-row w-full xs:w-4/5 sm:w-2/3 lg:w-1/3 mx-auto relative">
-            <div className="absolute -top-5 right-0 btn-grad rounded-full py-2 px-6 text-white shadow-md shadow-red-600 text-sm ">
+            <div className="cursor-default absolute -top-5 right-0 btn-grad rounded-full py-2 px-6 text-white shadow-md shadow-red-600 text-sm ">
               Ayo Hadir 👋
             </div>
             <div className="flex flex-col flex-1 bg-white shadow  rounded-md p-5 gap-4">
@@ -253,7 +253,7 @@ const Kajian = () => {
                             {kajian.tema}
                           </div>
                           <div className="text-neutral-500 font-base">
-                            {kajian.Ustadz.nama}
+                            {kajian.Ustadz?.nama}
                           </div>
                           <div className="text-neutral-500 font-bold">
                             {kajian.waktu_kajian_rutin}
@@ -293,7 +293,7 @@ const Kajian = () => {
                           {kajian.tema}
                         </div>
                         <div className="text-neutral-600 font-base">
-                          {kajian.Ustadz.nama}
+                          {kajian.Ustadz?.nama}
                         </div>
                         <div className="text-neutral-600 text-sm font-semibold">
                           {kajian.waktu_kajian_rutin}
