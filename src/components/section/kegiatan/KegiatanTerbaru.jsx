@@ -9,6 +9,7 @@ const KegiatanTerbaru = ({
   divisis,
   allKegiatansDivisis,
   namaDivisi,
+  handleGoToDetail,
 }) => {
   // Divisi yang aktif saat ini
   const divisiActive = divisis.filter((divisi) => divisi?.nama === active);
@@ -40,7 +41,10 @@ const KegiatanTerbaru = ({
     >
       {/* Ambil 1 data terbaru */}
       {allKegiatansDivisis[0] ? (
-        <div className=" lg:basis-1/2  w-full">
+        <div
+          className=" lg:basis-1/2  w-full  "
+          onClick={() => handleGoToDetail(allKegiatansDivisis[0]?.id)}
+        >
           <div className=" h-full w-full relative overflow-hidden rounded-md cursor-pointer hover:shadow-neutral-400 shadow-md group transition">
             <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent z-10"></div>
             <div className="absolute flex flex-col bottom-3 right-3 left-3 bg">
@@ -94,6 +98,7 @@ const KegiatanTerbaru = ({
                   <div
                     className="shadow-md hover:shadow-neutral-400 relative bg-orange-200 overflow-hidden rounded-md cursor-pointer group transition "
                     key={kegiatan.id}
+                    onClick={() => handleGoToDetail(kegiatan.id)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent z-10 "></div>
                     <div className="absolute flex flex-col bottom-2 right-3 left-3 z-10">
@@ -109,17 +114,10 @@ const KegiatanTerbaru = ({
                         </div>
                       </div>
                     </div>
-
                     <img
-                      src={
-                        active === "Semua"
-                          ? `${config.api_image}/${formatPathGambar(
-                              allKegiatansDivisis[0].gambar_kegiatan
-                            )}`
-                          : `${config.api_image}/${formatPathGambar(
-                              kegiatan.gambar_kegiatan
-                            )}`
-                      }
+                      src={`${config.api_image}/${formatPathGambar(
+                        kegiatan.gambar_kegiatan
+                      )}`}
                       alt={kegiatan.tema}
                       className="h-full w-full object-cover group-hover:scale-105 transition group-hover:duration-700"
                     />

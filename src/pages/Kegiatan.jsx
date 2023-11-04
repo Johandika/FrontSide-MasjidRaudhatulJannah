@@ -5,6 +5,7 @@ import KegiatanList from "../components/section/kegiatan/KegiatanList";
 import Button from "../components/Button";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import { getData } from "../utils/fetch";
+import { useNavigate } from "react-router-dom";
 
 const Kegiatan = () => {
   const [active, setActive] = useState("Semua");
@@ -12,6 +13,7 @@ const Kegiatan = () => {
   const [kegiatans, setKegiatans] = useState([]);
   const [displayedDataKegiatan, setDisplayedDataKegiatan] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(10);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
@@ -68,6 +70,10 @@ const Kegiatan = () => {
     (divisi) => divisi.id === allKegiatansDivisis[0].DivisiId
   );
 
+  const handleGoToDetail = (id) => {
+    navigate(`/kegiatan/${id}`);
+  };
+
   return (
     <div
       className={`${styles.paddingX} ${styles.flexCenter} bg-white rounded-t-[4rem]`}
@@ -96,6 +102,8 @@ const Kegiatan = () => {
             {divisis.map((divisi, index) => (
               <React.Fragment key={divisi?.id}>
                 <div className=" basis-1/2 sm:basis-1/4 md:basis-1/6  text-center border-t-[4px] border-b-[1px] border-greenBackground ">
+                  {/* {console.log("divisi", divisi.nama)}
+                  {console.log("active", active)} */}
                   <div
                     className={`py-2 ${
                       active === divisi?.nama && " bg-neutral-100"
@@ -130,6 +138,7 @@ const Kegiatan = () => {
                   divisis={divisis}
                   allKegiatansDivisis={allKegiatansDivisis}
                   namaDivisi={namaDivisi}
+                  handleGoToDetail={handleGoToDetail}
                 />
 
                 <KegiatanList
@@ -139,6 +148,7 @@ const Kegiatan = () => {
                   divisis={divisis}
                   kegiatansActivePerKategori={kegiatansActivePerKategoriSlice}
                   allKegiatansDivisis={allKegiatansDivisis}
+                  handleGoToDetail={handleGoToDetail}
                 />
               </div>
             </div>

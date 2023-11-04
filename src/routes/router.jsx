@@ -14,6 +14,7 @@ import LinkTablighAkbar from "../pages/LinkTablighAkbar";
 import ScrollToTop from "../ScrollToTop";
 import LinkKajianDetail from "../pages/LinkKajianDetail";
 import NotFound from "../pages/NotFound";
+import KegiatanDetail from "../pages/KegiatanDetail";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "/kegiatan",
         element: <Kegiatan />,
+      },
+      {
+        path: "/kegiatan/:id",
+        element: <KegiatanDetail />,
       },
       {
         path: "/donasi",

@@ -37,8 +37,8 @@ const LinkKajian = () => {
 
   const options = datasKajian
     .map((kajian) => ({
-      value: kajian.UstadzId,
-      label: kajian.Ustadz?.nama,
+      value: kajian?.UstadzId,
+      label: kajian?.Ustadz?.nama,
     }))
     .filter((kajian) => {
       if (!idSet.has(kajian.value)) {
@@ -98,7 +98,7 @@ const LinkKajian = () => {
                         {kajian.tema}
                       </h1>
                       <h2 className=" text-sm text-black">
-                        {kajian.Ustadz?.nama}
+                        {kajian?.Ustadz?.nama}
                       </h2>
                     </div>
                     <div className="flex flex-col text-end justify-between">
