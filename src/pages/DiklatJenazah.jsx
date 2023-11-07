@@ -17,7 +17,7 @@ const DiklatShalatJenazah = () => {
       const res = await getData("/diklat");
       const datas = res.data.data;
       const datasJenazah = datas.filter(
-        (data) => data.tema === "DIKLATJENAZAH"
+        (data) => data.tema === "DIKLAT_JENAZAH"
       );
       setDiklatJenazah(datasJenazah);
     } catch (error) {

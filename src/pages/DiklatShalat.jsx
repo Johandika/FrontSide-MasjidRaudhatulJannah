@@ -16,7 +16,7 @@ const DiklatShalat = () => {
     try {
       const res = await getData("/diklat");
       const datas = res.data.data;
-      const datasShalat = datas.filter((data) => data.tema === "DIKLATSHOLAT");
+      const datasShalat = datas.filter((data) => data.tema === "DIKLAT_SHOLAT");
       setDiklatShalat(datasShalat);
     } catch (error) {
       console.error("Error fetching data:", error);

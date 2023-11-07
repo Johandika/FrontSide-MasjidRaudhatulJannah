@@ -17,7 +17,7 @@ const DiklatPraNikah = () => {
       const res = await getData("/diklat");
       const datas = res.data.data;
       const datasPraNikah = datas.filter(
-        (data) => data.tema === "DIKLATPRANIKAH"
+        (data) => data.tema === "DIKLAT_PRANIKAH"
       );
       setPraNikah(datasPraNikah);
     } catch (error) {

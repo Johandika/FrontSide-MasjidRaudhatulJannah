@@ -84,10 +84,6 @@ function formatWaktuArtikel(rawDate) {
   return formattedDate;
 }
 
-// const rawDate = "2023-11-04T00:59:39.260Z";
-// const formattedDate = formatRawDate(rawDate);
-// console.log(formattedDate);
-
 export {
   formatTanggal as default,
   formatTanggalFullAngka,
