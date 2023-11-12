@@ -155,6 +155,7 @@ import { getData } from "../utils/fetch";
 const Kajian = () => {
   const [dataKajianRutin, setDataKajianRutin] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [kajian, setKajian] = useState([]);
 
   const fetchDataKajianRutin = useCallback(async () => {
     try {
@@ -181,13 +182,13 @@ const Kajian = () => {
   }, []);
 
   const daysOfWeek = [
+    "Ahad",
     "Senin",
     "Selasa",
     "Rabu",
     "Kamis",
     "Jum'at",
     "Sabtu",
-    "Ahad",
   ];
 
   const monthNames = [
@@ -209,6 +210,25 @@ const Kajian = () => {
   const date = currentDate.getDate();
   const month = monthNames[currentDate.getMonth()];
   const year = currentDate.getFullYear();
+
+  // Fungsi untuk membandingkan waktu_kajian_rutin
+  const compareWaktu = (a, b) => {
+    // Konversi waktu menjadi format yang bisa dibandingkan (misal: jam)
+    const waktuA = parseInt(a.waktu_kajian_rutin.split(" - ")[0], 10);
+    const waktuB = parseInt(b.waktu_kajian_rutin.split(" - ")[0], 10);
+
+    // Bandingkan waktu
+    if (waktuA < waktuB) {
+      return -1;
+    }
+    if (waktuA > waktuB) {
+      return 1;
+    }
+    return 0;
+  };
+
+  // Menggunakan fungsi compareWaktu untuk mengurutkan data
+  // const dataUrutkan = data.sort(compareWaktu);
 
   return (
     <div

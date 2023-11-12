@@ -49,10 +49,9 @@ const TahsinCard = ({ tahsin, kategori }) => {
 
 const FilteredTahsinCards = () => {
   const [kategori, setKategori] = useState("Tahsin Dewasa");
-  const [hari, setHari] = useState("Senin dan Rabu");
+  const [hari, setHari] = useState("Senin & Rabu");
   const [tahsinsDewasaData, SetTahsinsDewasaData] = useState([]);
   const [tahsinsAnakData, SetTahsinsAnakData] = useState([]);
-  const [pesertaTahsinDewasa, setPesertaTahsinDewasa] = useState([]);
 
   const fetchTahsin = async () => {
     try {
