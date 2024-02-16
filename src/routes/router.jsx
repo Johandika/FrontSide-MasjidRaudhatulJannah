@@ -1,4 +1,4 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../components/layout/Layout";
 import Donasi from "../pages/Donasi";
@@ -13,7 +13,6 @@ import Kajian from "../pages/Kajian";
 import LinkTablighAkbar from "../pages/LinkTablighAkbar";
 import ScrollToTop from "../ScrollToTop";
 import LinkKajianDetail from "../pages/LinkKajianDetail";
-
 
 const router = createBrowserRouter([
   {
@@ -77,6 +76,5 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
 
 export default router;
