@@ -37,8 +37,8 @@ const LinkKajian = () => {
 
   const options = datasKajian
     .map((kajian) => ({
-      value: kajian.UstadzId,
-      label: kajian.Ustadz.nama,
+      value: kajian?.UstadzId,
+      label: kajian?.Ustadz?.nama,
     }))
     .filter((kajian) => {
       if (!idSet.has(kajian.value)) {
@@ -47,8 +47,6 @@ const LinkKajian = () => {
       }
       return false;
     });
-  // console.log("options", ...options);
-  console.log("idSet", idSet);
 
   return (
     <div className={`${styles.paddingX} ${styles.flexCenter} pt-[60px]`}>
@@ -100,7 +98,7 @@ const LinkKajian = () => {
                         {kajian.tema}
                       </h1>
                       <h2 className=" text-sm text-black">
-                        {kajian.Ustadz.nama}
+                        {kajian?.Ustadz?.nama}
                       </h2>
                     </div>
                     <div className="flex flex-col text-end justify-between">

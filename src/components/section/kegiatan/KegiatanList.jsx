@@ -8,6 +8,7 @@ const KegiatanList = ({
   itemsPerPage,
   allKegiatansDivisis,
   divisis,
+  handleGoToDetail,
 }) => {
   const namaDivisi2 = (parameter) =>
     divisis.find((divisi) => divisi.id === parameter);
@@ -26,6 +27,7 @@ const KegiatanList = ({
               .map((kegiatan, index) => (
                 <div
                   key={index}
+                  onClick={() => handleGoToDetail(console.log("haha"))}
                   className="bg-white shadow-md rounded-md overflow-hidden cursor-pointer group transition hover:shadow-neutral-300 flex justify-between flex-col"
                 >
                   <div className="overflow-hidden bg-black">

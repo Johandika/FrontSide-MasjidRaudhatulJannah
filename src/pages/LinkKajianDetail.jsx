@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import styles from "../style";
-import { kajians } from "./Kajian";
+// import { kajians } from "./Kajian";
 import { getData } from "../utils/fetch";
 import { useEffect, useState } from "react";
 import { formatTanggalFullAngka } from "../utils/dateFormat";
@@ -49,7 +49,7 @@ const LinkKajianDetail = () => {
         <div>
           <div className="flex flex-col  text-greenText rounded-t-lg bg-Gray1 px-6 py-2 ">
             <h1 className="font-bold text-2xl">{dataKajian?.tema}</h1>
-            <h2 className="font-semibold">Ustd. {dataKajian?.Ustadz.nama}</h2>
+            <h2 className="font-semibold">Ustd. {dataKajian?.Ustadz?.nama}</h2>
           </div>
           <div className="flex flex-col  text-neutral-600">
             {datasLinkKajianFilter.map((kajian, index) => (

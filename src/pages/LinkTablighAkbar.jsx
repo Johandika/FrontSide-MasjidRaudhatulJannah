@@ -123,7 +123,9 @@ const LinkTablighAkbar = () => {
                         </div>
                         <div className="flex flex-col text-sm mt-auto px-3 pb-3 gap-2 group-hover:text-greenText">
                           <div>Ustd. {data.nama_ustadz}</div>
-                          <div>{formatTanggal(data.createdAt)}</div>
+                          <div>
+                            Tgl upload : {formatTanggal(data.createdAt)}
+                          </div>
                         </div>
                       </Link>
                     )}
@@ -158,7 +160,9 @@ const LinkTablighAkbar = () => {
                           </div>
                           <div className="flex flex-col text-sm mt-auto px-3 pb-3 gap-2 group-hover:text-greenText">
                             <div>Ustd. {data.nama_ustadz}</div>
-                            <div>{formatTanggal(data.createdAt)}</div>
+                            <div>
+                              Tgl upload : {formatTanggal(data.createdAt)}
+                            </div>
                           </div>
                         </Link>
                       )}
